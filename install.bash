@@ -41,6 +41,7 @@ then
     mkdir -p "$DOTVIM/.."
     cd "$DOTVIM/.."
     git clone git@github.com:swaroopch/dotvim.git
+    git submodule update --init
 else
     cd $DOTVIM
     git pull
