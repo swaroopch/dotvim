@@ -50,6 +50,7 @@ fi
 
 echo "Installing vimrc"
 ln -s -f "$DOTVIM/vimrc" "$HOME/.vimrc"
+ln -s -f "$DOTVIM/gvimrc" "$HOME/.gvimrc"
 
 echo "Going to open Vim now, keep pressing 'y' and return key until done."
 vim "$DOTVIM/README.md"
