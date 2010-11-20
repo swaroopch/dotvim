@@ -54,8 +54,8 @@ echo "Installing vimrc"
 ln -s -f "$DOTVIM/vimrc" "$HOME/.vimrc"
 ln -s -f "$DOTVIM/gvimrc" "$HOME/.gvimrc"
 
-echo "Going to open Vim now, keep pressing 'y' and return key until done."
-vim
+echo "Open Vim in a separate window NOW, keep pressing 'y' and return key until Vim exits. Press enter key in this window when done."
+read
 
 ## Assuming that all the plugins were installed properly
 
