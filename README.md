@@ -11,3 +11,7 @@
 ## Note
 
 Depending on which Vim plugins are included, `subversion` may be needed.
+
+<!--
+vim: ft=mkd
+-->
