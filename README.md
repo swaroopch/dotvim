@@ -1,7 +1,13 @@
 # dotvim
 
-My Vim setup.
+1. Ensure that `git`, and `curl` commands are installed.
 
-Just run:
+2. Run:
 
-    bash install.sh
+        bash < <( curl https://github.com/swaroopch/dotvim/raw/develop/install.bash )
+
+3. Profit!
+
+## Note
+
+Depending on which Vim plugins are included, `subversion` may be needed.
