@@ -54,6 +54,17 @@ ln -s -f "$DOTVIM/vimrc" "$HOME/.vimrc"
 echo "Going to open Vim now, keep pressing 'y' and return key until done."
 vim "$DOTVIM/README.md"
 
+## Assuming that all the plugins were installed properly
+
+if [[ -d "$DOTVIM/snipMate" ]]
+then
+    # FIXME Ugly but don't know how else to include custom snippets
+    cat "$DOTVIM/snippets_more/eruby.snippets" >> "$DOTVIM/snipMate/snippets/eruby.snippets"
+    cat "$DOTVIM/snippets_more/ruby.snippets" >> "$DOTVIM/snipMate/snippets/ruby.snippets"
+    cat "$DOTVIM/snippets_more/python.snippets" >> "$DOTVIM/snipMate/snippets/python.snippets"
+    cat "$DOTVIM/snippets_more/jinja.snippets" >> "$DOTVIM/snipMate/snippets/jinja.snippets"
+fi
+
 ## Install dependencies
 
 # ack
