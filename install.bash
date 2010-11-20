@@ -55,46 +55,5 @@ ln -s -f "$DOTVIM/vimrc" "$HOME/.vimrc"
 ln -s -f "$DOTVIM/gvimrc" "$HOME/.gvimrc"
 
 echo "Open Vim in a separate window NOW, keep pressing 'y' and return key until Vim exits. Press enter key in this window when done."
-read
-
-## Assuming that all the plugins were installed properly
-
-if [[ -d "$DOTVIM/snipMate" ]]
-then
-    # FIXME Ugly but don't know how else to include custom snippets
-    cat "$DOTVIM/snippets_more/eruby.snippets" >> "$DOTVIM/snipMate/snippets/eruby.snippets"
-    cat "$DOTVIM/snippets_more/ruby.snippets" >> "$DOTVIM/snipMate/snippets/ruby.snippets"
-    cat "$DOTVIM/snippets_more/python.snippets" >> "$DOTVIM/snipMate/snippets/python.snippets"
-    cat "$DOTVIM/snippets_more/jinja.snippets" >> "$DOTVIM/snipMate/snippets/jinja.snippets"
-fi
-
-## Install dependencies
-
-# ack
-if [[ "$OS" == "linux" ]]
-then
-    if [[ -z $(dpkg -l | fgrep -i ack-grep) ]]
-    then
-        sudo apt-get install ack-grep
-    fi
-    sudo ln -s -f /usr/bin/ack-grep /usr/bin/ack
-elif [[ "$OS" == "mac" ]]
-then
-    brew install ack
-fi
-
-# command-t
-cd $DOTVIM/Command-T/ruby/command-t
-ruby extconf.rb
-make
-
-## Cleanup
-
-if [[ "$OS" == "mac" ]]
-then
-    brew cleanup
-fi
 
 unset OS
-
-echo "Finished. Open Vim now!"
