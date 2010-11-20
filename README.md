@@ -5,6 +5,9 @@
 2. Run:
 
         bash < <( curl https://github.com/swaroopch/dotvim/raw/develop/install.bash )
+        vim # Follow the instructions to download the Vim plugins
+        cd $HOME/code/dotvim/
+        bash post_install.bash
 
 3. Profit!
 
