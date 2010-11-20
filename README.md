@@ -1,6 +1,6 @@
 # dotvim
 
-1. Ensure that `git`, and `curl` commands are installed.
+1. Ensure that `git` and `curl` commands are installed.
 
 2. Run:
 
