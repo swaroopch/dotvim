@@ -83,6 +83,11 @@ then
     brew install ack
 fi
 
+# command-t
+cd $DOTVIM/Command-T/ruby/command-t
+ruby extconf.rb
+make
+
 ## Cleanup
 
 if [[ "$OS" == "mac" ]]
