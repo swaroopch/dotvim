@@ -51,8 +51,8 @@ fi
 ## Install vim files
 
 echo "Installing vimrc"
-ln -s -f "$DOTVIM/vimrc" "$HOME/.vimrc"
-ln -s -f "$DOTVIM/gvimrc" "$HOME/.gvimrc"
+ln -s -i "$DOTVIM/vimrc" "$HOME/.vimrc"
+ln -s -i "$DOTVIM/gvimrc" "$HOME/.gvimrc"
 
 echo "Open Vim in a separate window NOW, keep pressing 'y' and return key until Vim exits. Press enter key in this window when done."
 
