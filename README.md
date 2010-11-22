@@ -1,5 +1,7 @@
 
-# dotvim
+# My Vim setup
+
+# Installation
 
     if [[ "$OSTYPE" == "linux-gnu" ]]
     then
