@@ -54,9 +54,6 @@ make
 
 ## Custom files
 
-# Put swap files in a specific location, to avoid Dropbox from spinning incessantly.
-mkdir -p "$HOME/.vim/swapfiles/"
-
 # HACK for htmljinja
 mkdir -p "$HOME/.vim/syntax/"
 ln -s -i "$DOTVIM/htmljinja/htmljinja.vim" "$HOME/.vim/syntax/htmljinja.vim"

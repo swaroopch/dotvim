@@ -54,6 +54,9 @@ echo "Installing vimrc"
 ln -s -i "$DOTVIM/vimrc" "$HOME/.vimrc"
 ln -s -i "$DOTVIM/gvimrc" "$HOME/.gvimrc"
 
+# Put swap files in a specific location, to avoid Dropbox from spinning incessantly.
+mkdir -p "$HOME/.vim/swapfiles/"
+
 echo "Open Vim in a separate window NOW, keep pressing 'y' and return key until Vim exits. Press enter key in this window when done."
 
 unset OS
