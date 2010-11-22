@@ -38,7 +38,7 @@ set expandtab
 set smarttab
 
 " Put swap files in a specific location, to avoid Dropbox from spinning incessantly.
-"set directory=~/code/dotvim/swapfiles
+set directory=~/.vim/swapfiles/
 
 " Show special characters
 if v:version >= 700
