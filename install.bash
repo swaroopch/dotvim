@@ -35,24 +35,13 @@ fi
 
 # Assumption of directory location
 DOTVIM="$HOME/code/dotvim"
-
-if [[ ! -d "$DOTVIM" ]]
-then
-    mkdir -p "$DOTVIM/.."
-    cd "$DOTVIM/.."
-    git clone git@github.com:swaroopch/dotvim.git
-    cd "$DOTVIM"
-    git submodule update --init
-else
-    cd $DOTVIM
-    git pull
-fi
+cd $DOTVIM
 
 ## Install vim files
 
 echo "Installing vimrc"
-ln -s -i "$DOTVIM/vimrc" "$HOME/.vimrc"
-ln -s -i "$DOTVIM/gvimrc" "$HOME/.gvimrc"
+ln -s -f "$DOTVIM/vimrc" "$HOME/.vimrc"
+ln -s -f "$DOTVIM/gvimrc" "$HOME/.gvimrc"
 
 # Put swap files in a specific location, to avoid Dropbox from spinning incessantly.
 mkdir -p "$HOME/.vim/swapfiles/"
