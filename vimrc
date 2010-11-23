@@ -177,6 +177,9 @@ function! PasteFromClipboard()
 endfunction
 command B call PasteFromClipboard()
 
+" Plain text files are Markdown
+autocmd BufNewFile,BufRead *.txt set ft=mkd
+
 " ReStructuredText mode
 function! ReStructuredTextMode()
     " Make bullet points follow to next line
@@ -196,7 +199,6 @@ function! ReStructuredTextMode()
 endfunction
 
 autocmd FileType rst call ReStructuredTextMode()
-autocmd BufNewFile,BufRead *.txt call ReStructuredTextMode()
 
 if has('python') " Assumes Python >= 2.6
 
