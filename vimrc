@@ -10,7 +10,7 @@ set nocompatible
 function ActivateAddons()
   set runtimepath+=~/code/dotvim/vim-addon-manager
   try
-    call scriptmanager#Activate(['snipMate', 'ack', 'Command-T', 'Conque_Shell', 'Align294', 'xmledit', 'The_NERD_tree', 'Jinja', 'Markdown_syntax', 'python790', 'rails', 'VOoM_-_Vim_Outliner_of_Markers'])
+    call scriptmanager#Activate(['snipMate', 'ack', 'Command-T', 'Conque_Shell', 'Align294', 'xmledit', 'The_NERD_tree', 'The_NERD_Commenter', 'Jinja', 'Markdown_syntax', 'python790', 'rails', 'VOoM_-_Vim_Outliner_of_Markers'])
   catch /.*/
     echoerr v:exception
   endtry
