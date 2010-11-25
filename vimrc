@@ -40,6 +40,10 @@ set smarttab
 " Put swap files in a specific location, to avoid Dropbox from spinning incessantly.
 set directory=~/.vim/swapfiles/
 
+" Disable the F1 help key
+map <F1> <Esc>
+imap <F1> <Esc>
+
 " Show special characters
 if v:version >= 700
     set list listchars=tab:>-,trail:.,extends:>,nbsp:_
