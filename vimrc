@@ -10,7 +10,7 @@ set nocompatible
 function ActivateAddons()
   set runtimepath+=~/code/dotvim/vim-addon-manager
   try
-    call scriptmanager#Activate(['snipMate', 'ack', 'Command-T', 'Conque_Shell', 'Align294', 'xmledit', 'The_NERD_tree', 'Jinja', 'Markdown_syntax', 'python790', 'rails', 'VOoM_-_Vim_Outliner_of_Markers'])
+    call scriptmanager#Activate(['snipMate', 'ack', 'Command-T', 'Conque_Shell', 'Align294', 'xmledit', 'The_NERD_tree', 'The_NERD_Commenter', 'Jinja', 'Markdown_syntax', 'inkpot', 'python790', 'rails', 'VOoM_-_Vim_Outliner_of_Markers'])
   catch /.*/
     echoerr v:exception
   endtry
@@ -38,7 +38,11 @@ set expandtab
 set smarttab
 
 " Put swap files in a specific location, to avoid Dropbox from spinning incessantly.
-"set directory=~/code/dotvim/swapfiles
+set directory=~/.vim/swapfiles/
+
+" Disable the F1 help key
+map <F1> <Esc>
+imap <F1> <Esc>
 
 " Show special characters
 if v:version >= 700
@@ -177,6 +181,10 @@ function! PasteFromClipboard()
 endfunction
 command B call PasteFromClipboard()
 
+" Plain text files are Markdown
+autocmd BufNewFile,BufRead *.txt set ft=mkd
+autocmd FileType mkd TextMode
+
 " ReStructuredText mode
 function! ReStructuredTextMode()
     " Make bullet points follow to next line
@@ -196,7 +204,6 @@ function! ReStructuredTextMode()
 endfunction
 
 autocmd FileType rst call ReStructuredTextMode()
-autocmd BufNewFile,BufRead *.txt call ReStructuredTextMode()
 
 if has('python') " Assumes Python >= 2.6
 

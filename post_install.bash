@@ -29,7 +29,7 @@ then
     cat "$DOTVIM/snippets_more/eruby.snippets" >> "$DOTVIM/snipMate/snippets/eruby.snippets"
     cat "$DOTVIM/snippets_more/ruby.snippets" >> "$DOTVIM/snipMate/snippets/ruby.snippets"
     cat "$DOTVIM/snippets_more/python.snippets" >> "$DOTVIM/snipMate/snippets/python.snippets"
-    cat "$DOTVIM/snippets_more/jinja.snippets" >> "$DOTVIM/snipMate/snippets/jinja.snippets"
+    cat "$DOTVIM/snippets_more/htmljinja.snippets" >> "$DOTVIM/snipMate/snippets/htmljinja.snippets"
 fi
 
 ## Install dependencies
@@ -51,6 +51,15 @@ fi
 cd $DOTVIM/Command-T/ruby/command-t
 ruby extconf.rb
 make
+
+## Custom files
+
+# HACK for htmljinja
+mkdir -p "$HOME/.vim/syntax/"
+ln -s -i "$DOTVIM/htmljinja/htmljinja.vim" "$HOME/.vim/syntax/htmljinja.vim"
+mkdir -p "$HOME/.vim/ftplugin/"
+ln -s -i "$DOTVIM/htmljinja/htmldjango.vim" "$HOME/.vim/ftplugin/htmldjango.vim"
+ln -s -i "$DOTVIM/htmljinja/htmldjango.vim" "$HOME/.vim/ftplugin/html.vim"
 
 ## Cleanup
 

@@ -1,20 +1,25 @@
-# dotvim
 
-1. Ensure that `git` and `curl` commands are installed.
+# My Vim setup
 
-2. Run:
+# Installation
 
-        bash < <( curl https://github.com/swaroopch/dotvim/raw/develop/install.bash )
-        vim # Follow the instructions to download the Vim plugins
-        cd $HOME/code/dotvim/
-        bash post_install.bash
+    if [[ "$OSTYPE" == "linux-gnu" ]]
+    then
+        sudo apt-get install git curl subversion
+    elif [[ "$OSTYPE" == "darwin10.0" ]]
+    then
+        brew install git curl subversion
+    fi
 
-3. Profit!
+    mkdir -p "$HOME/code/"
+    cd "$HOME/code/"
 
-## Note
+    git clone git://github.com/swaroopch/dotvim.git
+    cd dotvim
+    git submodule update --init
 
-Depending on which Vim plugins are included, `subversion` may be needed.
+    bash install.bash
 
-<!--
-vim: ft=mkd
--->
+    vim # Follow the instructions to download the Vim plugins
+
+    bash post_install.bash
