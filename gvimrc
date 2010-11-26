@@ -1,5 +1,5 @@
 " Theme
-colorscheme railscasts
+colorscheme inkpot
 
 " Logical size of GVim window
 set lines=35 columns=99
