@@ -6,11 +6,17 @@
 set nocompatible
 
 "" Vim Addon Manager
+"" https://github.com/MarcWeber/vim-addon-manager/raw/master/doc/vim-addon-manager.txt
 
 function ActivateAddons()
   set runtimepath+=~/code/dotvim/vim-addon-manager
   try
     call scriptmanager#Activate(['snipMate', 'ack', 'Command-T', 'Conque_Shell', 'Align294', 'xmledit', 'The_NERD_tree', 'The_NERD_Commenter', 'Jinja', 'Markdown_syntax', 'inkpot', 'python790', 'rails', 'VOoM_-_Vim_Outliner_of_Markers'])
+
+    " OrgMode
+    let g:vim_script_manager['plugin_sources']['vimorganizer'] = { 'type' : 'git', 'url' : 'git://github.com/hsitz/VimOrganizer.git' }
+    call scriptmanager#Activate(['vimorganizer'])
+
   catch /.*/
     echoerr v:exception
   endtry
@@ -318,6 +324,45 @@ autocmd FileType html  call TagExpander()
 autocmd FileType eruby call TagExpander()
 autocmd FileType php   call TagExpander()
 autocmd FileType htmljinja call TagExpander()
+
+" OrgMode
+" https://github.com/hsitz/VimOrganizer/blob/master/VimOrganizerCheatsheet.org
+
+set foldmethod=manual
+au! BufRead *.org
+au! BufWrite *.org
+au! BufWritePost *.org
+au BufRead *.org :PreLoadTags
+au BufWrite *.org :PreWriteTags
+au BufWritePost *.org :PostWriteTags
+
+let g:agenda_dirs=["/Users/swaroop/Dropbox/Notes"]
+
+" You can (and should) modify TodoSetup() and TagSetup() calls
+" in SetFileType() below, but be careful about changing anything else
+function! SetOrgFileType()
+        if expand("%:e") == 'org'
+                if &filetype != 'org'
+                        execute "set filetype=org"
+                endif
+        " The two lines below set up TODOS and tag lists for your
+        " org files, eventually each file will be able to have
+        " these defined with customization lines in the file, but
+        " for now must call a function manually.  You can set
+        " different org files up differently, if you want.  As
+        " it stands now all org files use same sample setup, below
+        call TodoSetup([['TODO','NEXT'],'STARTED',['DONE','CANCELED']])
+        call TagSetup('{@home(h) @work(w) @tennisclub(t)} {easy(e) hard(d)} {computer(c) phone(p)}')
+        endif
+        if !exists('g:in_agenda_search') && (&foldmethod!='expr')
+                setlocal foldmethod=expr
+                set foldlevel=1
+        endif
+        syntax on
+        colorscheme org_dark
+endfunction
+syntax on
+au! BufRead,BufNewFile *.org call SetOrgFileType()
 
 " Local config
 if filereadable(".vimrc.local")
