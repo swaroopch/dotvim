@@ -3,7 +3,7 @@
 
 # Installation
 
-    if [[ "$OSTYPE" =~ "linux" ]]
+    if [[ "$OSTYPE" =~ "linux" ]] # Assumes Ubuntu
     then
         sudo apt-get install git curl subversion
     elif [[ "$OSTYPE" =~ "darwin" ]]
