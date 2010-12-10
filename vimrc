@@ -183,6 +183,7 @@ command B call PasteFromClipboard()
 
 " Plain text files are Markdown
 autocmd BufNewFile,BufRead *.txt set ft=mkd
+autocmd BufNewFile,BufRead *.md set ft=mkd
 autocmd FileType mkd TextMode
 
 " ReStructuredText mode
