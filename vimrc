@@ -322,7 +322,10 @@ autocmd FileType php   call TagExpander()
 autocmd FileType htmljinja call TagExpander()
 
 " JSON
-au! BufRead,BufNewFile *.json setfiletype json
+autocmd BufRead,BufNewFile *.json setfiletype json
+
+" Jinja files
+autocmd BufRead,BufNewFile */flask_application/templates/*.html set ft=htmljinja
 
 " Local config
 if filereadable(".vimrc.local")
