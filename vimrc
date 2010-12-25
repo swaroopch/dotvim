@@ -305,6 +305,7 @@ let python_highlight_all=1
 map <Leader>e :<C-u>call conque_term#send_selected(visualmode())<CR><CR>
 command Shell :set nolist | ConqueTermSplit bash
 command PythonShell :set nolist | ConqueTermSplit python
+command RailsShell :set nolist | ConqueTermSplit rails console
 
 " XML, HTML
 function TagExpander()
