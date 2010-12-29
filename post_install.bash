@@ -59,7 +59,6 @@ mkdir -p "$HOME/.vim/syntax/"
 ln -s -i "$DOTVIM/htmljinja/htmljinja.vim" "$HOME/.vim/syntax/htmljinja.vim"
 mkdir -p "$HOME/.vim/ftplugin/"
 ln -s -i "$DOTVIM/htmljinja/htmldjango.vim" "$HOME/.vim/ftplugin/htmldjango.vim"
-ln -s -i "$DOTVIM/htmljinja/htmldjango.vim" "$HOME/.vim/ftplugin/html.vim"
 
 ## Cleanup
 

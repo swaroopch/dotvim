@@ -3,12 +3,15 @@
 
 # Installation
 
-    if [[ "$OSTYPE" == "linux-gnu" ]]
+    if [[ "$OSTYPE" =~ "linux" ]] # Assumes Ubuntu
     then
         sudo apt-get install git curl subversion
-    elif [[ "$OSTYPE" == "darwin10.0" ]]
+    elif [[ "$OSTYPE" =~ "darwin" ]]
     then
         brew install git curl subversion
+    else
+        echo "Don't know how to install packages on $OSTYPE operating system"
+        exit 1
     fi
 
     mkdir -p "$HOME/code/"

@@ -10,7 +10,7 @@ set nocompatible
 function ActivateAddons()
   set runtimepath+=~/code/dotvim/vim-addon-manager
   try
-    call scriptmanager#Activate(['snipMate', 'ack', 'Command-T', 'Conque_Shell', 'Align294', 'xmledit', 'The_NERD_tree', 'The_NERD_Commenter', 'Jinja', 'Markdown_syntax', 'inkpot', 'python790', 'rails', 'VOoM_-_Vim_Outliner_of_Markers'])
+    call scriptmanager#Activate(['snipMate', 'ack', 'Command-T', 'Conque_Shell', 'Align294', 'xmledit', 'The_NERD_tree', 'The_NERD_Commenter', 'surround', 'Jinja', 'Markdown_syntax', 'JSON', 'inkpot', 'python790', 'rails', 'VOoM_-_Vim_Outliner_of_Markers'])
   catch /.*/
     echoerr v:exception
   endtry
@@ -183,6 +183,7 @@ command B call PasteFromClipboard()
 
 " Plain text files are Markdown
 autocmd BufNewFile,BufRead *.txt set ft=mkd
+autocmd BufNewFile,BufRead *.md set ft=mkd
 autocmd FileType mkd TextMode
 
 " ReStructuredText mode
@@ -304,6 +305,7 @@ let python_highlight_all=1
 map <Leader>e :<C-u>call conque_term#send_selected(visualmode())<CR><CR>
 command Shell :set nolist | ConqueTermSplit bash
 command PythonShell :set nolist | ConqueTermSplit python
+command RailsShell :set nolist | ConqueTermSplit rails console
 
 " XML, HTML
 function TagExpander()
@@ -318,6 +320,12 @@ autocmd FileType html  call TagExpander()
 autocmd FileType eruby call TagExpander()
 autocmd FileType php   call TagExpander()
 autocmd FileType htmljinja call TagExpander()
+
+" JSON
+autocmd BufRead,BufNewFile *.json setfiletype json
+
+" Jinja files
+autocmd BufRead,BufNewFile */flask_application/templates/*.html set ft=htmljinja
 
 " Local config
 if filereadable(".vimrc.local")
