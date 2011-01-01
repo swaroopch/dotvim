@@ -328,9 +328,9 @@ autocmd BufRead,BufNewFile *.json setfiletype json
 autocmd BufRead,BufNewFile */flask_application/templates/*.html set ft=htmljinja
 
 " Local config
-let vimrc_local = expand("~/.vimrc.local", ":p") 
+let vimrc_local = expand("~/.vimrc.local", ":p")
 if filereadable(vimrc_local)
-    exec 'source ' . vimrc_local
+    execute 'source' vimrc_local
 endif
 unlet vimrc_local
 
