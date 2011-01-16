@@ -1,2 +1,3 @@
 snippet echo
-	app.logger.debug("|ZZZ| ${1:variable_name} = |%s|", $1) #DEBUG
+	from pprint import pformat #DEBUG
+	app.logger.debug("|ZZZ| ${1:variable_name} => \n----\n%s\n----", pformat($1)) #DEBUG
