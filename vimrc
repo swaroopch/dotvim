@@ -321,6 +321,9 @@ autocmd FileType eruby call TagExpander()
 autocmd FileType php   call TagExpander()
 autocmd FileType htmljinja call TagExpander()
 
+" Ruby
+autocmd FileType ruby set tabstop=2 shiftwidth=2
+
 " JSON
 autocmd BufRead,BufNewFile *.json setfiletype json
 
