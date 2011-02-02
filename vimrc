@@ -176,7 +176,7 @@ command A call CopyAll()
 
 " Delete buffer contents and Paste from OS clipboard.
 function! PasteFromClipboard()
-    normal ggVGd"+p1Gdd
+    normal ggVGd"+p1G
     call Say("Pasted.")
 endfunction
 command B call PasteFromClipboard()
