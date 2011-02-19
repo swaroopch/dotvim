@@ -330,6 +330,9 @@ autocmd BufRead,BufNewFile *.json setfiletype json
 " Jinja files
 autocmd BufRead,BufNewFile */flask_application/templates/*.html set ft=htmljinja
 
+" Assume Bash is my shell (:help sh)
+let g:is_bash = 1
+
 " Local config
 let vimrc_local = expand("~/.vimrc.local", ":p")
 if filereadable(vimrc_local)
