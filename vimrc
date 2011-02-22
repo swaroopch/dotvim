@@ -333,6 +333,10 @@ autocmd BufRead,BufNewFile */flask_application/templates/*.html set ft=htmljinja
 " Assume Bash is my shell (:help sh.vim)
 let g:is_bash = 1
 
+" Insert timestamp
+nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
 " Local config
 let vimrc_local = expand("~/.vimrc.local", ":p")
 if filereadable(vimrc_local)
