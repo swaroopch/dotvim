@@ -1,5 +1,8 @@
 " Theme
 colorscheme slate
+if has('mac')
+    colorscheme koehler
+endif
 
 " Logical size of GVim window
 set lines=35 columns=99
