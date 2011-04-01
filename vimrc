@@ -181,7 +181,7 @@ function! PasteFromClipboard()
 endfunction
 command B call PasteFromClipboard()
 
-" Plain text files are Markdown
+" Plain text files are Textile
 autocmd BufNewFile,BufRead *.txt set ft=textile
 autocmd BufNewFile,BufRead *.text set ft=textile
 autocmd FileType textile TextMode
