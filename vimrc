@@ -10,7 +10,7 @@ set nocompatible
 function ActivateAddons()
   set runtimepath+=~/code/dotvim/vim-addon-manager
   try
-    call scriptmanager#Activate(['snipMate', 'ack', 'Command-T', 'Conque_Shell', 'Align294', 'xmledit', 'The_NERD_tree', 'The_NERD_Commenter', 'surround', 'Jinja', 'Markdown_syntax', 'JSON', 'inkpot', 'python790', 'rails', 'VOoM_-_Vim_Outliner_of_Markers', 'DrawIt'])
+    call scriptmanager#Activate(['snipMate', 'ack', 'Command-T', 'Conque_Shell', 'Align294', 'xmledit', 'The_NERD_tree', 'The_NERD_Commenter', 'surround', 'Jinja', 'Textile_for_VIM', 'JSON', 'inkpot', 'python790', 'rails', 'VOoM_-_Vim_Outliner_of_Markers', 'DrawIt'])
   catch /.*/
     echoerr v:exception
   endtry
@@ -182,9 +182,9 @@ endfunction
 command B call PasteFromClipboard()
 
 " Plain text files are Markdown
-autocmd BufNewFile,BufRead *.txt set ft=mkd
-autocmd BufNewFile,BufRead *.md set ft=mkd
-autocmd FileType mkd TextMode
+autocmd BufNewFile,BufRead *.txt set ft=textile
+autocmd BufNewFile,BufRead *.text set ft=textile
+autocmd FileType textile TextMode
 
 " ReStructuredText mode
 function! ReStructuredTextMode()
