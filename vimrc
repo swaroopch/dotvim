@@ -413,6 +413,7 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 " Default color scheme
 " On Mac OS X, best used with iTerm2 and the solarized color scheme for iTerm2
+set background=dark
 colorscheme solarized
 
 " Local config
