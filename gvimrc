@@ -1,5 +1,5 @@
 " Theme
-colorscheme koehler
+colorscheme solarized
 
 " Logical size of GVim window
 set lines=35 columns=99
@@ -12,7 +12,6 @@ set guioptions-=T
 if has('mac')
     set guifont=Monaco:h13
 elseif has('unix')
-    "let &guifont="Monospace 10"
     let &guifont="DejaVu Sans Mono 10"
 endif
 

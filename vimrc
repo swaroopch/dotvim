@@ -4,18 +4,54 @@
 "" Vim, not Vi.
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+" required! by vundle
+filetype off
 
-"" Vim Addon Manager
+"" Vundle
+"" See :help vundle for more details
+set runtimepath+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-function ActivateAddons()
-  set runtimepath+=~/code/dotvim/vim-addon-manager
-  try
-    call scriptmanager#Activate(['snipMate', 'ack', 'Command-T', 'Conque_Shell', 'Align294', 'xmledit', 'The_NERD_tree', 'The_NERD_Commenter', 'surround', 'Jinja', 'Textile_for_VIM', 'JSON', 'inkpot', 'python790', 'rails', 'VOoM_-_Vim_Outliner_of_Markers', 'DrawIt'])
-  catch /.*/
-    echoerr v:exception
-  endtry
-endfunction
-call ActivateAddons()
+" let Vundle manage Vundle
+" required! by vundle
+Bundle 'gmarik/vundle'
+
+" Git Repos by http://vim-scripts.org ( get names from https://github.com/vim-scripts/following )
+Bundle 'Conque-Shell'
+Bundle 'JSON.vim'
+Bundle 'Jinja'
+Bundle 'Textile-for-VIM'
+Bundle 'django.vim'
+Bundle 'go.vim'
+Bundle 'nginx.vim'
+Bundle 'python.vim--Vasiliev'
+Bundle 'ZoomWin'
+
+" Git Repos on GitHub
+" Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'alfredodeza/pytest.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'carlosvillu/coffeScript-VIM-Snippets'
+Bundle 'ervandew/supertab'
+Bundle 'fs111/pydoc.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'mattn/zencoding-vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'mitechie/pyflakes-pathogen'
+Bundle 'msanders/snipmate.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'sjl/gundo.vim'
+Bundle 'sontek/rope-vim'
+Bundle 'sukima/xmledit'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+
+" Git Repos not on GitHub
+Bundle 'git://git.wincent.com/command-t.git'
 
 "" General Settings
 
@@ -27,6 +63,7 @@ set fileformat=unix
 au BufNewFile * set fileformat=unix
 
 " Automatically indent when adding a curly bracket, etc.
+" required! by vundle
 filetype plugin indent on
 set autoindent
 set smartindent
@@ -36,9 +73,7 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set smarttab
-
-" Put swap files in a specific location, to avoid Dropbox from spinning incessantly.
-set directory=~/.vim/swapfiles/
+set backspace=indent,eol,start
 
 " Disable the F1 help key
 map <F1> <Esc>
@@ -80,6 +115,7 @@ set statusline=
 set statusline+=%-3.3n\                         " buffer number
 set statusline+=%f\                             " filename
 set statusline+=%h%m%r%w                        " status flags
+set statusline+=%{fugitive#statusline()}        " git status
 set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
 set statusline+=%=                              " right align remainder
 set statusline+=0x%-8B                          " character value
@@ -272,6 +308,18 @@ EOF
     command O call Open()
     map <Leader>o :call Open()<CR>
 
+" Add the virtualenv's site-packages to vim path
+python << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+
 endif " python
 
 " Remove the Windows ^M (copied from http://amix.dk/vim/vimrc.html)
@@ -295,17 +343,36 @@ nnoremap ' `
 nnoremap ` '
 
 " matchit
-runtime macros/matchit.vim
+runtime! macros/matchit.vim
 
 " Python
 let python_highlight_all=1
+" For 'supertab' script
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
 
-" Conque Shell
-" http://www.vim.org/scripts/script.php?script_id=2771
+"" Script-specific configurations
+
+" For 'Lokaltog/vim-easymotion' script
+let g:EasyMotion_leader_key = '<Leader>m'
+
+" For 'scrooloose/nerdcommenter' script
+let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
+map <leader>n :NERDTreeToggle<CR>
+
+" For 'ZoomWin' script
+map <Leader><Leader> :ZoomWin<CR>
+
+" For 'mileszs/ack.vim' script
+nmap <leader>a <Esc>:Ack!
+
+" For 'Conque-Shell' script
 map <Leader>e :<C-u>call conque_term#send_selected(visualmode())<CR><CR>
 command Shell :set nolist | ConqueTermSplit bash
 command PythonShell :set nolist | ConqueTermSplit python
 command RailsShell :set nolist | ConqueTermSplit rails console
+"command FlaskShell :set nolist | ConqueTermSplit env DEV=yes python -i play.py
 
 " XML, HTML
 function TagExpander()
@@ -322,10 +389,17 @@ autocmd FileType php   call TagExpander()
 autocmd FileType htmljinja call TagExpander()
 
 " Ruby
+autocmd BufRead,BufNewFile {Gemfile,Rakefile,config.ru} set ft=ruby
 autocmd FileType ruby set tabstop=2 shiftwidth=2
 
+" Go ( http://www.go-lang.org )
+autocmd BufRead,BufNewFile *.go set ft=go
+
+" YAML
+autocmd FileType yaml set tabstop=2 shiftwidth=2
+
 " JSON
-autocmd BufRead,BufNewFile *.json setfiletype json
+autocmd BufRead,BufNewFile *.json set ft=json foldmethod=syntax
 
 " Jinja files
 autocmd BufRead,BufNewFile */flask_application/templates/*.html set ft=htmljinja
@@ -336,6 +410,10 @@ let g:is_bash = 1
 " Insert timestamp
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
+" Default color scheme
+" On Mac OS X, best used with iTerm2 and the solarized color scheme for iTerm2
+colorscheme solarized
 
 " Local config
 let vimrc_local = expand("~/.vimrc.local", ":p")
