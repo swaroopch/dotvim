@@ -20,8 +20,11 @@ then
 fi
 
 # Download upstart.vim
-mkdir -p ~/.vim/syntax/
-curl http://bazaar.launchpad.net/~upstart-devel/upstart/trunk/download/head:/upstart.vim-20090708195914-1n7k3bcwobwm4ag7-7/upstart.vim -o ~/.vim/syntax/upstart.vim
+if [[ ! -f ~/.vim/syntax/upstart.vim ]]
+then
+    mkdir -p ~/.vim/syntax/
+    curl http://bazaar.launchpad.net/~upstart-devel/upstart/trunk/download/head:/upstart.vim-20090708195914-1n7k3bcwobwm4ag7-7/upstart.vim -o ~/.vim/syntax/upstart.vim
+fi
 
 # vimrc, gvimrc
 ln -s -f $PWD/vimrc ~/.vimrc
