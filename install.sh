@@ -40,4 +40,10 @@ then
     cd -
 fi
 
+# Jinja post-download installation
+if [[ -d ~/.vim/bundle/Jinja ]]
+then
+    curl http://www.vim.org/scripts/download_script.php?src_id=6961 -o ~/.vim/bundle/Jinja/syntax/htmljinja.vim
+fi
+
 echo "Finished"
