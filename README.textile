@@ -5,4 +5,4 @@ h2. Installation
 # Install "git":http://git-scm.com and "curl":http://curl.haxx.se
 # @git clone git://github.com/swaroopch/dotvim.git@
 # @cd dotvim@
-# @bash install.sh@
+# @./install.sh@
