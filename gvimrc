@@ -1,4 +1,5 @@
 " Theme
+set background=light
 colorscheme solarized
 
 " Logical size of GVim window
