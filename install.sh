@@ -41,6 +41,12 @@ then
     cd -
 fi
 
+# Custom snippets
+if [[ -d ~/.vim/bundle/snipmate.vim ]]
+then
+    cp -v snippets/eruby.snippets ~/.vim/bundle/snipmate.vim/snippets/
+fi
+
 # Jinja post-download installation
 if [[ -d ~/.vim/bundle/Jinja ]] && [[ ! -f ~/.vim/bundle/Jinja/syntax/htmljinja.vim ]]
 then
