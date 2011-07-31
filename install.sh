@@ -12,6 +12,8 @@ then
     exit 1
 fi
 
+#rm -rf ~/.vimrc ~/.gvimrc  ~/.vimrc.local ~/.vim
+
 # Download Vundle
 mkdir -p ~/.vim/bundle
 if [[ ! -d ~/.vim/bundle/vundle ]]
@@ -44,7 +46,8 @@ fi
 # Custom snippets
 if [[ -d ~/.vim/bundle/snipmate.vim ]]
 then
-    cp -v snippets/eruby.snippets ~/.vim/bundle/snipmate.vim/snippets/
+    cat snippets/eruby.snippets  >> ~/.vim/bundle/snipmate.vim/snippets/eruby.snippets
+    cat snippets/python.snippets >> ~/.vim/bundle/snipmate.vim/snippets/python.snippets
 fi
 
 # Jinja post-download installation
