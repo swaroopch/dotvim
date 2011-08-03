@@ -21,11 +21,12 @@ Bundle 'Conque-Shell'
 Bundle 'JSON.vim'
 Bundle 'Jinja'
 Bundle 'Textile-for-VIM'
+Bundle 'ZoomWin'
 Bundle 'django.vim'
 Bundle 'go.vim'
 Bundle 'nginx.vim'
 Bundle 'python.vim--Vasiliev'
-Bundle 'ZoomWin'
+Bundle 'taglist.vim'
 
 " Git Repos on GitHub
 " Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
