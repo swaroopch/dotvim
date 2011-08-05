@@ -43,6 +43,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
 Bundle 'sontek/rope-vim'
 Bundle 'sukima/xmledit'
@@ -117,6 +118,7 @@ set statusline+=%-3.3n\                         " buffer number
 set statusline+=%f\                             " filename
 set statusline+=%h%m%r%w                        " status flags
 set statusline+=%{fugitive#statusline()}        " git status
+set statusline+=%{SyntasticStatuslineFlag()}    " syntastic status
 set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
 set statusline+=%=                              " right align remainder
 set statusline+=0x%-8B                          " character value
