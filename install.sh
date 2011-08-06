@@ -29,8 +29,12 @@ then
 fi
 
 # Link vimrc, gvimrc
-ln -s -f $PWD/vimrc ~/.vimrc
-ln -s -f $PWD/gvimrc ~/.gvimrc
+ln -s -f "$PWD/vimrc" "$HOME/.vimrc"
+ln -s -f "$PWD/gvimrc" "$HOME/.gvimrc"
+if [[ -f "$PWD/vimrc.local" ]]
+then
+    ln -s -f "$PWD/vimrc.local" "$HOME/.vimrc.local"
+fi
 
 # Tell Vundle to download all the scripts
 vim -c "BundleInstall" -c "quit"
