@@ -51,6 +51,7 @@ Bundle 'sukima/xmledit'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
 "Bundle 'mitechie/pyflakes-pathogen'
 
 " Git Repos not on GitHub
