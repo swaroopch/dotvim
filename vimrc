@@ -422,6 +422,24 @@ if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
     colorscheme solarized
 endif
 
+" Mac
+if has('gui_macvim')
+    set macmeta
+
+    let macvim_hig_shift_movement = 1
+
+    function ToggleFullScreen()
+        if exists("g:in_full_screen")
+            set nofullscreen
+            unlet g:in_full_screen
+        else
+            let g:in_full_screen = 1
+            set fullscreen
+        endif
+    endfunction
+    nmap <Leader>f :call ToggleFullScreen()<CR>
+endif
+
 " Local config
 let vimrc_local = expand("~/.vimrc.local", ":p")
 if filereadable(vimrc_local)
