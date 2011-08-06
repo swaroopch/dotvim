@@ -359,27 +359,31 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
-"" Script-specific configurations
+"" Bundle-specific configurations
 
-" For 'Lokaltog/vim-easymotion' script
+" Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>m'
 
-" For 'scrooloose/nerdcommenter' script
+" Bundle 'scrooloose/nerdcommenter'
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <leader>n :NERDTreeToggle<CR>
 
-" For 'ZoomWin' script
+" Bundle 'ZoomWin'
 map <Leader><Leader> :ZoomWin<CR>
 
-" For 'mileszs/ack.vim' script
+" Bundle 'mileszs/ack.vim'
 nmap <leader>a <Esc>:Ack!
 
-" For 'Conque-Shell' script
+" Bundle 'Conque-Shell'
 map <Leader>e :<C-u>call conque_term#send_selected(visualmode())<CR><CR>
 command Shell :set nolist | ConqueTermSplit bash
 command PythonShell :set nolist | ConqueTermSplit python
 command RailsShell :set nolist | ConqueTermSplit rails console
 "command FlaskShell :set nolist | ConqueTermSplit env DEV=yes python -i play.py
+
+" Bundle 'tpope/vim-fugitive'
+" http://vimcasts.org/blog/2011/05/the-fugitive-series/
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " XML, HTML
 function TagExpander()
