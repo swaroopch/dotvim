@@ -171,6 +171,9 @@ set incsearch
 " Ignore case when searching
 set ignorecase
 
+" Make /g flag default when doing :s
+set gdefault
+
 " Show autocomplete menus
 set wildmenu
 
