@@ -395,6 +395,9 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " Bundle 'kchmck/vim-coffee-script'
 autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2
 
+" Bundle 'scrooloose/syntastic'
+let g:syntastic_enable_signs=1
+
 " XML, HTML
 function TagExpander()
     if exists("b:did_ftplugin")
