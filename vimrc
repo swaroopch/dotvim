@@ -169,8 +169,11 @@ set showcmd
 " Search as you type.
 set incsearch
 
-" Ignore case when searching
+" Ignore case while searching
 set ignorecase
+
+" Be case sensitive when input has a capital letter
+set smartcase
 
 " Make /g flag default when doing :s
 set gdefault
@@ -180,6 +183,18 @@ set wildmenu
 
 " Show editing mode
 set showmode
+
+" Show matching brackets
+set showmatch
+
+" Bracket blinking
+set matchtime=2
+
+" Split new window below current one
+set splitbelow
+
+" Split new window right of current one
+set splitright
 
 " Error bells are displayed visually.
 set visualbell
@@ -359,6 +374,9 @@ let python_highlight_all=1
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
+
+" Paste mode
+set pastetoggle=<Leader>p
 
 "" Bundle-specific configurations
 
