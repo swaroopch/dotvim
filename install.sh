@@ -60,4 +60,10 @@ then
     curl http://www.vim.org/scripts/download_script.php?src_id=6961 -o ~/.vim/bundle/Jinja/syntax/htmljinja.vim
 fi
 
+# Remove explicit Safari mention
+if [[ -d ~/.vim/bundle/Textile-for-VIM/ ]]
+then
+    sed -i.bak 's/open -a Safari/open/' "$HOME/.vim/bundle/Textile-for-VIM/ftplugin/textile.vim"
+fi
+
 echo "Finished"
