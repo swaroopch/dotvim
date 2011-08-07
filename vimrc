@@ -389,6 +389,9 @@ command RailsShell :set nolist | ConqueTermSplit rails console
 " http://vimcasts.org/blog/2011/05/the-fugitive-series/
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" Bundle 'kchmck/vim-coffee-script'
+autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2
+
 " XML, HTML
 function TagExpander()
     if exists("b:did_ftplugin")
