@@ -42,13 +42,6 @@ fi
 echo "Instruct Vundle to download all the scripts"
 vim -c "BundleInstall" -c "quit"
 
-echo "Download upstart.vim"
-if [[ ! -f $HOME/.vim/syntax/upstart.vim ]]
-then
-    mkdir -p $HOME/.vim/syntax/
-    curl "http://bazaar.launchpad.net/~upstart-devel/upstart/trunk/download/head:/upstart.vim-20090708195914-1n7k3bcwobwm4ag7-7/upstart.vim" -o "$HOME/.vim/syntax/upstart.vim"
-fi
-
 echo "Command-T post-download installation"
 if [[ -d "$HOME/.vim/bundle/command-t" ]]
 then
@@ -64,16 +57,30 @@ then
     cat snippets/python.snippets >> "$HOME/.vim/bundle/snipmate.vim/snippets/python.snippets"
 fi
 
-echo "Jinja post-download installation"
-if [[ -d "$HOME/.vim/bundle/Jinja" ]] && [[ ! -f "$HOME/.vim/bundle/Jinja/syntax/htmljinja.vim" ]]
-then
-    curl "http://www.vim.org/scripts/download_script.php?src_id=6961" -o "$HOME/.vim/bundle/Jinja/syntax/htmljinja.vim"
-fi
+echo "Custom after plugins"
+mkdir -p "$HOME/.vim/after/plugin"
+for f in $(ls after/plugin/*)
+do
+    ln -s -f "$PWD/$f" "$HOME/.vim/after/plugin"
+done
 
 echo "Remove explicit Safari mention in Textile-for-VIM"
 if [[ -d "$HOME/.vim/bundle/Textile-for-VIM/" ]]
 then
     sed -i.bak 's/open -a Safari/open/' "$HOME/.vim/bundle/Textile-for-VIM/ftplugin/textile.vim"
+fi
+
+echo "Download upstart.vim"
+if [[ ! -f $HOME/.vim/syntax/upstart.vim ]]
+then
+    mkdir -p $HOME/.vim/syntax/
+    curl "http://bazaar.launchpad.net/~upstart-devel/upstart/trunk/download/head:/upstart.vim-20090708195914-1n7k3bcwobwm4ag7-7/upstart.vim" -o "$HOME/.vim/syntax/upstart.vim"
+fi
+
+echo "Jinja post-download installation"
+if [[ -d "$HOME/.vim/bundle/Jinja" ]] && [[ ! -f "$HOME/.vim/bundle/Jinja/syntax/htmljinja.vim" ]]
+then
+    curl "http://www.vim.org/scripts/download_script.php?src_id=6961" -o "$HOME/.vim/bundle/Jinja/syntax/htmljinja.vim"
 fi
 
 echo "Finished"
