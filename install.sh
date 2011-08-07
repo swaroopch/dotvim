@@ -57,6 +57,13 @@ then
     cat snippets/python.snippets >> "$HOME/.vim/bundle/snipmate.vim/snippets/python.snippets"
 fi
 
+echo "Custom ftplugins"
+mkdir -p "$HOME/.vim/ftplugin"
+for f in $(ls ftplugin/*)
+do
+    ln -s -f "$PWD/$f" "$HOME/.vim/ftplugin"
+done
+
 echo "Custom after plugins"
 mkdir -p "$HOME/.vim/after/plugin"
 for f in $(ls after/plugin/*)
