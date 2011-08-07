@@ -372,6 +372,9 @@ map <leader>n :NERDTreeToggle<CR>
 " Bundle 'taglist.vim'
 map <leader>l :TlistToggle<CR>
 
+" Bundle 'sjl/gundo.vim'
+map <leader>u :GundoToggle<CR>
+
 " Bundle 'ZoomWin'
 map <Leader><Leader> :ZoomWin<CR>
 
