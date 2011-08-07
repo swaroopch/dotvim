@@ -415,6 +415,7 @@ autocmd FileType html  call TagExpander()
 autocmd FileType eruby call TagExpander()
 autocmd FileType php   call TagExpander()
 autocmd FileType htmljinja call TagExpander()
+autocmd FileType htmldjango call TagExpander()
 
 " Ruby
 autocmd BufRead,BufNewFile {Gemfile,Rakefile,config.ru} set ft=ruby
