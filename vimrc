@@ -369,6 +369,9 @@ let g:EasyMotion_leader_key = '<Leader>m'
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <leader>n :NERDTreeToggle<CR>
 
+" Bundle 'taglist.vim'
+map <leader>l :TlistToggle<CR>
+
 " Bundle 'ZoomWin'
 map <Leader><Leader> :ZoomWin<CR>
 
