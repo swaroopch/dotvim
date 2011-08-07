@@ -367,19 +367,23 @@ let g:EasyMotion_leader_key = '<Leader>m'
 
 " Bundle 'scrooloose/nerdcommenter'
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
-map <leader>n :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeToggle<CR>
 
 " Bundle 'taglist.vim'
-map <leader>l :TlistToggle<CR>
+map <Leader>l :TlistToggle<CR>
 
 " Bundle 'sjl/gundo.vim'
-map <leader>u :GundoToggle<CR>
+map <Leader>u :GundoToggle<CR>
+
+" Bundle 'sontek/rope-vim'
+let g:ropevim_local_prefix='<Leader>r'
+let g:ropevim_global_prefix='<Leader>p'
 
 " Bundle 'ZoomWin'
 map <Leader><Leader> :ZoomWin<CR>
 
 " Bundle 'mileszs/ack.vim'
-nmap <leader>a <Esc>:Ack!
+nmap <Leader>a <Esc>:Ack!
 
 " Bundle 'Conque-Shell'
 map <Leader>e :<C-u>call conque_term#send_selected(visualmode())<CR><CR>
