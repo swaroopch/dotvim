@@ -331,7 +331,7 @@ EOF
 endif " python
 
 " Remove the Windows ^M (copied from http://amix.dk/vim/vimrc.html)
-map <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+map <Leader>d mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " See `:help key-notation`
 " Shortcuts for moving between tabs
