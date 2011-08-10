@@ -53,8 +53,10 @@ fi
 echo "Custom snippets"
 if [[ -d "$HOME/.vim/bundle/snipmate.vim" ]]
 then
-    cat snippets/eruby.snippets  >> "$HOME/.vim/bundle/snipmate.vim/snippets/eruby.snippets"
-    cat snippets/python.snippets >> "$HOME/.vim/bundle/snipmate.vim/snippets/python.snippets"
+    for snippet_file in $(ls snippets/*.snippets)
+    do
+        cat "$snippet_file"  >> "$HOME/.vim/bundle/snipmate.vim/$snippet_file"
+    done
 fi
 
 echo "Custom ftplugins"
