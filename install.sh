@@ -12,9 +12,9 @@ then
     exit 1
 fi
 
-echo "Backup existing vim files"
 export VIM_BACKUP_DIR="/tmp/dotvim-backup"
 mkdir -p $VIM_BACKUP_DIR
+echo "Backing up existing vim files to $VIM_BACKUP_DIR"
 for f in $(ls -a $VIM_BACKUP_DIR| grep -v '^.$' | grep -v '^..$')
 do
     rm -rf "$VIM_BACKUP_DIR/$f"
