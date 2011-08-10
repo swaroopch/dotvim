@@ -21,7 +21,7 @@ do
 done
 for f in "$HOME/.vimrc" "$HOME/.gvimrc" "$HOME/.vimrc.local" "$HOME/.vim"
 do
-    [[ -s "$f" ]] && mv -vf "$f" $VIM_BACKUP_DIR
+    [[ -s "$f" ]] && mv -f "$f" $VIM_BACKUP_DIR
 done
 
 echo "Download Vundle"
