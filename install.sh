@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+## Check OS
+
+if [[ "$OSTYPE" == "darwin10.0" ]]
+then
+    export OS="mac"
+elif [[ "$OSTYPE" == "linux-gnu" ]]
+then
+    export OS="linux"
+else
+    echo "Don't know what to do with '$OSTYPE' operating system"
+    exit 1
+fi
+
 # Git and Curl required
 if [[ $(which git) == "" ]]
 then
@@ -90,6 +103,16 @@ echo "Jinja post-download installation"
 if [[ -d "$HOME/.vim/bundle/Jinja" ]] && [[ ! -f "$HOME/.vim/bundle/Jinja/syntax/htmljinja.vim" ]]
 then
     curl "http://www.vim.org/scripts/download_script.php?src_id=6961" -o "$HOME/.vim/bundle/Jinja/syntax/htmljinja.vim"
+fi
+
+echo "Installing ctags"
+if [[ "$OS" == "mac" ]]
+then
+    brew install ctags
+fi
+if [[ "$OS" == "linux" ]]
+then
+    sudo apt-get install exuberant-ctags
 fi
 
 echo "Finished"
