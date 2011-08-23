@@ -26,7 +26,6 @@ Bundle 'django.vim'
 Bundle 'go.vim'
 Bundle 'nginx.vim'
 Bundle 'python.vim--Vasiliev'
-Bundle 'taglist.vim'
 
 " Git Repos on GitHub
 " Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
@@ -38,11 +37,11 @@ Bundle 'fs111/pydoc.vim'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'majutsushi/tagbar'
 Bundle 'mattn/zencoding-vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'roman/golden-ratio'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -55,6 +54,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 "Bundle 'mitechie/pyflakes-pathogen'
 "Bundle 'ervandew/supertab'
+"Bundle 'roman/golden-ratio'
 
 " Git Repos not on GitHub
 Bundle 'git://git.wincent.com/command-t.git'
@@ -193,10 +193,10 @@ set showmatch
 set matchtime=2
 
 " Split new window below current one
-set splitbelow
+"set splitbelow
 
 " Split new window right of current one
-set splitright
+"set splitright
 
 " Error bells are displayed visually.
 set visualbell
@@ -389,8 +389,8 @@ let g:EasyMotion_leader_key = '<Leader>m'
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
 
-" Bundle 'taglist.vim'
-map <Leader>l :TlistToggle<CR>
+" Bundle 'majutsushi/tagbar'
+map <Leader>l :TagbarToggle<CR>
 
 " Bundle 'sjl/gundo.vim'
 map <Leader>u :GundoToggle<CR>
