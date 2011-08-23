@@ -421,6 +421,9 @@ command PythonShell :set nolist | ConqueTermSplit python
 command RailsShell :set nolist | ConqueTermSplit rails console
 "command FlaskShell :set nolist | ConqueTermSplit env DEV=yes python -i play.py
 
+" Sudo to write
+cmap w!! w !sudo tee % >/dev/null
+
 " Bundle 'tpope/vim-fugitive'
 " http://vimcasts.org/blog/2011/05/the-fugitive-series/
 autocmd BufReadPost fugitive://* set bufhidden=delete
