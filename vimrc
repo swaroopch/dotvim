@@ -398,6 +398,9 @@ map <Leader>l :TagbarToggle<CR>
 " Bundle 'sjl/gundo.vim'
 map <Leader>u :GundoToggle<CR>
 
+" Open each buffer in a window, so do like 'vim foo bar baz' and hit this key to split window open
+map <Leader>w :ball<CR>
+
 " Bundle 'sontek/rope-vim'
 let g:ropevim_local_prefix='<Leader>r'
 let g:ropevim_global_prefix='<Leader>p'
