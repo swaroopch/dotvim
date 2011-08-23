@@ -85,6 +85,9 @@ set backspace=indent,eol,start
 map <F1> <Esc>
 imap <F1> <Esc>
 
+" Map the spacebar to ':' (i.e. switch to the command-line mode)
+nnoremap <space> :
+
 " Show special characters
 if v:version >= 700
     set list listchars=tab:>-,trail:.,extends:>,nbsp:_
