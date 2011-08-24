@@ -189,9 +189,6 @@ set wildmenu
 " Show editing mode
 set showmode
 
-" Tab completion config in command-line mode
-set wildmode=list:full
-
 " Ignore certain filetypes when doing filename completion
 set wildignore=*.swp,*.pyc,*.bak
 
