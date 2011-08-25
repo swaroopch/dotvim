@@ -37,6 +37,9 @@ do
     [[ -s "$f" ]] && mv -f "$f" $VIM_BACKUP_DIR
 done
 
+echo "Ensuring backup directory exists"
+mkdir -p "$HOME/.vim/backup"
+
 echo "Download Vundle"
 mkdir -p "$HOME/.vim/bundle"
 if [[ ! -d "$HOME/.vim/bundle/vundle" ]]

@@ -82,6 +82,10 @@ set expandtab
 set smarttab
 set backspace=indent,eol,start
 
+" Set up backup dir where the swap files are stored
+set dir=~/.vim/backup,~/tmp,/tmp
+set backupdir=~/.vim/backup,~/tmp,/tmp
+
 " Disable the F1 help key
 map <F1> <Esc>
 imap <F1> <Esc>
