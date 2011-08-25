@@ -36,6 +36,7 @@ Bundle 'carlosvillu/coffeScript-VIM-Snippets'
 Bundle 'fs111/pydoc.vim'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
+Bundle 'jasonkuhrt/Tomorrow-Theme'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
 Bundle 'mattn/zencoding-vim'
@@ -478,9 +479,10 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 " Default color scheme
 " On Mac OS X, best used with iTerm2 and the solarized color scheme for iTerm2
 set background=dark
-if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
-    colorscheme solarized
-endif
+"if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
+    "colorscheme solarized
+"endif
+colorscheme Tomorrow
 
 " Mac
 if has('gui_macvim')
