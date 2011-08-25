@@ -204,7 +204,7 @@ set showmatch
 set matchtime=2
 
 " Split new window below current one
-"set splitbelow
+set splitbelow
 
 " Split new window right of current one
 "set splitright
