@@ -1,4 +1,6 @@
 snippet pdb
 	import pdb; pdb.set_trace()
 snippet debug
-	from pprint import pformat; print "${1:var} =", pformat($1) #DEBUG
+	print "$1" #DEBUG
+snippet echo
+	print "${1:var} =", ($1) #DEBUG
