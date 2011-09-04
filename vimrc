@@ -420,7 +420,7 @@ let g:ropevim_global_prefix='<Leader>p'
 map <Leader><Leader> :ZoomWin<CR>
 
 " Bundle 'mileszs/ack.vim'
-nmap <Leader>a <Esc>:Ack!
+nmap <Leader>a <Esc>:Ack!<space>
 
 " Bundle 'Conque-Shell'
 map <Leader>e :<C-u>call conque_term#send_selected(visualmode())<CR><CR>
