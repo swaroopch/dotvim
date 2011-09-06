@@ -396,6 +396,9 @@ set pastetoggle=<Leader>p
 " Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>m'
 
+" Bundle 'godlygeek/tabular'
+command -range AlignFirstEqualSign :<line1>,<line2>Tabularize /^[^=]*\zs/
+
 " Bundle 'scrooloose/nerdtree'
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
