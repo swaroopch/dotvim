@@ -182,9 +182,6 @@ set incsearch
 " Ignore case while searching
 set ignorecase
 
-" Be case sensitive when input has a capital letter
-set smartcase
-
 " Make /g flag default when doing :s
 set gdefault
 
