@@ -406,8 +406,8 @@ map <Leader>l :TagbarToggle<CR>
 " Bundle 'sjl/gundo.vim'
 map <Leader>u :GundoToggle<CR>
 
-" Open each buffer in a window, so do like 'vim foo bar baz' and hit this key to split window open
-map <Leader>w :ball<CR>
+" Save
+map <Leader>w :w<CR>
 
 " Quick shortcut to s
 nnoremap <Leader>s :%s//<left>
