@@ -390,6 +390,9 @@ set pastetoggle=<Leader>p
 
 "" Bundle-specific configurations
 
+" Bundle 'Textile-for-VIM'
+map <Leader>g :TextilePreview<CR>
+
 " Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>m'
 
