@@ -105,7 +105,7 @@ set textwidth=0
 set wrap
 
 " Text mode
-command TextMode set nolist wrap linebreak scrolloff=999
+command TextMode set nolist wrap linebreak scrolloff=999 encoding=latin1
 
 " Highlight current line
 set cursorline
