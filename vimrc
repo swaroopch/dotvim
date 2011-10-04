@@ -489,10 +489,12 @@ command Reedit :windo edit!
 " Default color scheme
 " On Mac OS X, best used with iTerm2 and the solarized color scheme for iTerm2
 set background=light
+if isdirectory(expand("~/.vim/bundle/Tomorrow-Theme", ":p"))
+    colorscheme Tomorrow
+endif
 "if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
     "colorscheme solarized
 "endif
-colorscheme Tomorrow
 
 " Mac
 if has('gui_macvim')
