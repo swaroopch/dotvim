@@ -47,7 +47,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
-Bundle 'sontek/rope-vim'
+"Bundle 'sontek/rope-vim'
 Bundle 'sukima/xmledit'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
@@ -483,8 +483,8 @@ let g:is_bash = 1
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
-" Reload all windows, useful after I do a 'git rebase -i'
-command Reedit :windo edit!
+" Reload all windows in all tabs, useful after I do a 'git rebase -i'
+command Reedit :tabdo windo edit!
 
 " Default color scheme
 " On Mac OS X, best used with iTerm2 and the solarized color scheme for iTerm2
