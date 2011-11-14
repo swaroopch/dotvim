@@ -106,7 +106,7 @@ set textwidth=0
 set wrap
 
 " Text mode
-command TextMode set nolist wrap linebreak scrolloff=999 encoding=latin1
+command TextMode setlocal nolist wrap linebreak scrolloff=999 encoding=latin1
 
 " Highlight current line
 set cursorline
@@ -252,8 +252,8 @@ endfunction
 command B call PasteFromClipboard()
 
 " Plain text files are Textile
-autocmd BufNewFile,BufRead *.txt set ft=textile
-autocmd BufNewFile,BufRead *.text set ft=textile
+autocmd BufNewFile,BufRead *.txt setlocal ft=textile
+autocmd BufNewFile,BufRead *.text setlocal ft=textile
 autocmd FileType textile TextMode
 
 " ReStructuredText mode
@@ -463,19 +463,19 @@ autocmd FileType htmldjango call TagExpander()
 
 " Ruby
 autocmd BufRead,BufNewFile {Gemfile,Rakefile,config.ru} set ft=ruby
-autocmd FileType ruby set tabstop=2 shiftwidth=2
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 
 " Go ( http://www.go-lang.org )
-autocmd BufRead,BufNewFile *.go set ft=go
+autocmd BufRead,BufNewFile *.go setlocal ft=go
 
 " YAML
-autocmd FileType yaml set tabstop=2 shiftwidth=2
+autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 
 " JSON
-autocmd BufRead,BufNewFile *.json set ft=json foldmethod=syntax
+autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
 
 " Jinja files
-autocmd BufRead,BufNewFile */flask_application/templates/*.html set ft=htmljinja
+autocmd BufRead,BufNewFile */flask_application/templates/*.html setlocal ft=htmljinja
 
 " Assume Bash is my shell (:help sh.vim)
 let g:is_bash = 1
