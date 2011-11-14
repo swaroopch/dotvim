@@ -1,6 +1,4 @@
 snippet pdb
 	import pdb; pdb.set_trace() #DEBUG
-snippet debug
-	print "${1:statement}" #DEBUG
 snippet echo
-	print "${1:var} = {0}".format($1) #DEBUG
+	log.debug("ZZZ ${1:var} = {0}".format($1)) #DEBUG
