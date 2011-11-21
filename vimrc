@@ -442,10 +442,10 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " CoffeeScript
 " Bundle 'kchmck/vim-coffee-script'
-autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2
+autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 tabstop=2
 command CoffeeShowJavascript :CoffeeCompile watch vert | setlocal scrollbind | wincmd w | setlocal scrollbind | wincmd w
 command CoffeeStopJavascript :CoffeeCompile unwatch | only
-let g:coffee_make_options='--lint'
+let g:coffee_make_options='--bare --lint'
 
 " Bundle 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
