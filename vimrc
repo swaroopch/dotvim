@@ -465,17 +465,17 @@ autocmd FileType htmldjango call TagExpander()
 autocmd BufRead,BufNewFile {Gemfile,Rakefile,config.ru} set ft=ruby
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 
-" Go ( http://www.go-lang.org )
-autocmd BufRead,BufNewFile *.go setlocal ft=go
-
 " YAML
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 
 " JSON
 autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
 
-" Jinja files
-autocmd BufRead,BufNewFile */flask_application/templates/*.html setlocal ft=htmljinja
+" CoffeeScript
+" https://github.com/kchmck/vim-coffee-script#readme
+au BufNewFile,BufReadPost *.coffee setlocal tabstop=2 shiftwidth=2
+command CoffeeShowJavascript :CoffeeCompile watch vert | setlocal scrollbind | wincmd w | setlocal scrollbind | wincmd w
+command CoffeeStopJavascript :CoffeeCompile unwatch | only
 
 " Assume Bash is my shell (:help sh.vim)
 let g:is_bash = 1
