@@ -440,8 +440,12 @@ cmap w!! w !sudo tee % >/dev/null
 " http://vimcasts.org/blog/2011/05/the-fugitive-series/
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" CoffeeScript
 " Bundle 'kchmck/vim-coffee-script'
 autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2
+command CoffeeShowJavascript :CoffeeCompile watch vert | setlocal scrollbind | wincmd w | setlocal scrollbind | wincmd w
+command CoffeeStopJavascript :CoffeeCompile unwatch | only
+let g:coffee_make_options='--lint'
 
 " Bundle 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
@@ -470,12 +474,6 @@ autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 
 " JSON
 autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
-
-" CoffeeScript
-" https://github.com/kchmck/vim-coffee-script#readme
-au BufNewFile,BufReadPost *.coffee setlocal tabstop=2 shiftwidth=2
-command CoffeeShowJavascript :CoffeeCompile watch vert | setlocal scrollbind | wincmd w | setlocal scrollbind | wincmd w
-command CoffeeStopJavascript :CoffeeCompile unwatch | only
 
 " Assume Bash is my shell (:help sh.vim)
 let g:is_bash = 1
