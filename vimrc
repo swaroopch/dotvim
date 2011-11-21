@@ -36,7 +36,6 @@ Bundle 'carlosvillu/coffeScript-VIM-Snippets'
 Bundle 'fs111/pydoc.vim'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
-Bundle 'jasonkuhrt/Tomorrow-Theme'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
@@ -53,8 +52,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
-"Bundle 'mitechie/pyflakes-pathogen'
 "Bundle 'ervandew/supertab'
+"Bundle 'jasonkuhrt/Tomorrow-Theme'
+"Bundle 'mitechie/pyflakes-pathogen'
 "Bundle 'roman/golden-ratio'
 "Bundle 'sontek/rope-vim'
 
@@ -490,12 +490,9 @@ command Reedit :tabdo windo edit!
 " Default color scheme
 " On Mac OS X, best used with iTerm2 and the solarized color scheme for iTerm2
 set background=light
-if isdirectory(expand("~/.vim/bundle/Tomorrow-Theme", ":p"))
-    colorscheme Tomorrow
+if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
+    colorscheme solarized
 endif
-"if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
-    "colorscheme solarized
-"endif
 
 " Mac
 if has('gui_macvim')
