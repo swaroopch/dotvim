@@ -91,9 +91,6 @@ set backupdir=~/.vim/backup,~/tmp,/tmp
 map <F1> <Esc>
 imap <F1> <Esc>
 
-" Map the spacebar to ':' (i.e. switch to the command-line mode)
-nnoremap <space> :
-
 " Show special characters
 if v:version >= 700
     set list listchars=tab:>-,trail:.,extends:>,nbsp:_
@@ -411,10 +408,7 @@ map <Leader>l :TagbarToggle<CR>
 map <Leader>u :GundoToggle<CR>
 
 " Save
-map <Leader>w :w<CR>
-
-" Quick shortcut to s
-nnoremap <Leader>s :%s//<left>
+map <Leader>s :w<CR>
 
 " Bundle 'sontek/rope-vim'
 let g:ropevim_local_prefix='<Leader>r'
