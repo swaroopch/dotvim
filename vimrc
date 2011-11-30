@@ -251,10 +251,10 @@ function! PasteFromClipboard()
 endfunction
 command B call PasteFromClipboard()
 
-" Plain text files are Textile
-autocmd BufNewFile,BufRead *.txt setlocal ft=textile
-autocmd BufNewFile,BufRead *.text setlocal ft=textile
-autocmd FileType textile TextMode
+" Plain text files are Markdown
+autocmd BufNewFile,BufRead *.txt setlocal ft=markdown
+autocmd BufNewFile,BufRead *.text setlocal ft=markdown
+autocmd FileType markdown TextMode
 
 " ReStructuredText mode
 function! ReStructuredTextMode()
