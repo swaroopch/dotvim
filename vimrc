@@ -36,6 +36,7 @@ Bundle 'carlosvillu/coffeScript-VIM-Snippets'
 Bundle 'fs111/pydoc.vim'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
+Bundle 'hallison/vim-markdown'
 Bundle 'jayferd/eco.vim'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'kchmck/vim-coffee-script'
@@ -53,7 +54,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'wavded/vim-stylus'
 "Bundle 'ervandew/supertab'
 "Bundle 'jasonkuhrt/Tomorrow-Theme'
@@ -471,6 +471,10 @@ autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 
 " JSON
 autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
+
+" Allow these file extensions to be accessed via 'gf' of only the name, for
+" e.g. gf on [[AnotherPage]] should go to AnotherPage.md
+set suffixesadd=.md,.textile,.txt
 
 " Assume Bash is my shell (:help sh.vim)
 let g:is_bash = 1
