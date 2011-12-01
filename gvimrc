@@ -11,7 +11,7 @@ set guioptions-=T
 
 " Font.
 if has('mac')
-    set guifont=Monaco:h13
+    set guifont=Menlo:h14
 elseif has('unix')
     let &guifont="DejaVu Sans Mono 10"
 endif
