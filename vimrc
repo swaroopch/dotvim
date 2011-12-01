@@ -480,8 +480,8 @@ set suffixesadd=.md,.textile,.txt
 let g:is_bash = 1
 
 " Insert timestamp
-nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+nmap <F3> a<C-R>=strftime("%d-%b-%Y")<CR><Esc>
+imap <F3> <C-R>=strftime("%d-%b-%Y")<CR>
 
 " Reload all windows in all tabs, useful after I do a 'git rebase -i'
 command Reedit :tabdo windo edit!
