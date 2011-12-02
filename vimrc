@@ -36,9 +36,7 @@ Bundle 'carlosvillu/coffeScript-VIM-Snippets'
 Bundle 'fs111/pydoc.vim'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
-Bundle 'hallison/vim-markdown'
 Bundle 'jayferd/eco.vim'
-Bundle 'jiangmiao/auto-pairs'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
 Bundle 'mattn/zencoding-vim'
@@ -50,6 +48,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
 Bundle 'sukima/xmledit'
+Bundle 'swaroopch/vim-markdown'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
@@ -57,6 +56,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'wavded/vim-stylus'
 "Bundle 'ervandew/supertab'
 "Bundle 'jasonkuhrt/Tomorrow-Theme'
+"Bundle 'jiangmiao/auto-pairs'
 "Bundle 'mitechie/pyflakes-pathogen'
 "Bundle 'roman/golden-ratio'
 "Bundle 'sontek/rope-vim'
@@ -387,7 +387,7 @@ let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
 " Paste mode
-set pastetoggle=<Leader>p
+set pastetoggle=<Leader>pp
 
 "" Bundle-specific configurations
 
