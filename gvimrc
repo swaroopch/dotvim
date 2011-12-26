@@ -1,5 +1,5 @@
 " Theme
-set background=light
+set background=dark
 colorscheme solarized
 
 " Logical size of GVim window
@@ -11,7 +11,7 @@ set guioptions-=T
 
 " Font.
 if has('mac')
-    set guifont=Courier:h18
+    set guifont=Menlo:h16
 elseif has('unix')
     let &guifont="DejaVu Sans Mono 10"
 endif
