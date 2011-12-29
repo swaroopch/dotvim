@@ -258,6 +258,9 @@ autocmd BufNewFile,BufRead *.txt setlocal ft=markdown
 autocmd BufNewFile,BufRead *.text setlocal ft=markdown
 autocmd FileType markdown TextMode
 
+" \t Will open filename in new tab, great for Gollum wiki
+map <leader>t <c-w>gf
+
 " ReStructuredText mode
 function! ReStructuredTextMode()
     " Make bullet points follow to next line
