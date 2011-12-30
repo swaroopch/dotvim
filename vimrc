@@ -21,11 +21,11 @@ Bundle 'Conque-Shell'
 Bundle 'JSON.vim'
 Bundle 'Jinja'
 Bundle 'Textile-for-VIM'
-Bundle 'ZoomWin'
 Bundle 'django.vim'
 Bundle 'go.vim'
 Bundle 'nginx.vim'
 Bundle 'python.vim--Vasiliev'
+"Bundle 'ZoomWin'
 
 " Git Repos on GitHub
 " Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
@@ -61,7 +61,6 @@ Bundle 'wavded/vim-stylus'
 "Bundle 'jiangmiao/auto-pairs'
 "Bundle 'mitechie/pyflakes-pathogen'
 "Bundle 'roman/golden-ratio'
-"Bundle 'sontek/rope-vim'
 
 " Git Repos not on GitHub
 Bundle 'git://git.wincent.com/command-t.git'
@@ -123,7 +122,7 @@ vnoremap <silent> k gk
 " This keeps the cursor always in the vertical middle of the screen.
 set scrolloff=999
 
-" Use UTF-8.
+" Use UTF-8
 set encoding=utf-8
 
 " Status line
@@ -195,7 +194,7 @@ set wildmenu
 set showmode
 
 " Ignore certain filetypes when doing filename completion
-set wildignore=*.swp,*.pyc,*.bak
+set wildignore=*.sw*,*.pyc,*.bak
 
 " Show matching brackets
 set showmatch
@@ -205,9 +204,6 @@ set matchtime=2
 
 " Split new window below current one
 set splitbelow
-
-" Split new window right of current one
-"set splitright
 
 " Error bells are displayed visually.
 set visualbell
@@ -258,48 +254,14 @@ autocmd BufNewFile,BufRead *.txt setlocal ft=markdown
 autocmd BufNewFile,BufRead *.text setlocal ft=markdown
 autocmd FileType markdown TextMode
 
-" \t Will open filename in new tab, great for Gollum wiki
+" Allow these file extensions to be accessed via 'gf' of only the name, for
+" e.g. gf on [[AnotherPage]] should go to AnotherPage.md
+set suffixesadd=.md,.txt
+
+" Open filename in new tab, great for Gollum wiki
 map <leader>t <c-w>gf
 
-" ReStructuredText mode
-function! ReStructuredTextMode()
-    " Make bullet points follow to next line
-    " http://stackoverflow.com/questions/1047400/
-    " setlocal comments+=n:-,n:#.
-
-    " Don't visually break words when line wrapping
-    set nolist
-    set linebreak
-    set scrolloff=999
-
-    " Override the default indentation which I don't like
-    " $VIMRUNTIME/indent/rst.vim
-    setlocal indentexpr=
-    setlocal indentkeys=
-    setlocal smartindent
-endfunction
-
-autocmd FileType rst call ReStructuredTextMode()
-
 if has('python') " Assumes Python >= 2.6
-
-    " Make it easy to add heading markers in ReStructuredText
-    function! Heading(char)
-python <<EOF
-import vim
-
-marker_line = vim.eval('a:char') * len(vim.current.line)
-current_line_number = vim.current.window.cursor[0] # (row, col)
-vim.current.buffer.append(marker_line, current_line_number)
-vim.command('normal j')
-vim.command('normal o')
-EOF
-    endfunction
-
-    command H1 call Heading('=')
-    command H2 call Heading('-')
-    command H3 call Heading('~')
-    command H4 call Heading('^')
 
     " Quick way to open a filename under the cursor in a new tab
     " (or URL in a browser)
@@ -311,12 +273,12 @@ import vim
 
 def launch(uri):
     if platform.system() == 'Darwin':
-        vim.command('!open {0}'.format(uri))
+        vim.command('!open {}'.format(uri))
     elif platform.system() == 'Linux':
-        vim.command('!gnome-open {0}'.format(uri))
+        vim.command('!gnome-open {}'.format(uri))
 
 def is_word(text):
-    return re.match(r'^[\w./?%:#&=-]+$', text) is not None
+    return re.match(r'^[\w./?%:#&=~-]+$', text) is not None
 
 filename_start = filename_end = vim.current.window.cursor[1] # (row, col)
 
@@ -329,13 +291,13 @@ while filename_end <= len(vim.current.line) and is_word(vim.current.line[filenam
 
 filename = vim.current.line[filename_start:filename_end]
 
-if filename.endswith('.rst') or filename.endswith('.txt'):
+if filename.endswith('.md') or filename.endswith('.txt'):
     vim.command('tabedit {0}'.format(filename))
 
 elif filename.lower().startswith('http') or filename.lower().startswith('www.'):
     if filename.lower().startswith('www.'):
         filename = 'http://{0}'.format(filename)
-    filename = filename.replace('#', r'\#').replace('%', r'\%')
+    filename = filename.replace('#', r'\#').replace('%', r'\%').replace('~', r'\~')
     launch(filename)
 
 else:
@@ -391,13 +353,7 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
-" Paste mode
-set pastetoggle=<Leader>pp
-
 "" Bundle-specific configurations
-
-" Bundle 'Textile-for-VIM'
-map <Leader>g :TextilePreview<CR>
 
 " Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>m'
@@ -414,16 +370,6 @@ map <Leader>l :TagbarToggle<CR>
 
 " Bundle 'sjl/gundo.vim'
 map <Leader>u :GundoToggle<CR>
-
-" Save
-map <Leader>s :w<CR>
-
-" Bundle 'sontek/rope-vim'
-let g:ropevim_local_prefix='<Leader>r'
-let g:ropevim_global_prefix='<Leader>p'
-
-" Bundle 'ZoomWin'
-map <Leader><Leader> :ZoomWin<CR>
 
 " Bundle 'mileszs/ack.vim'
 nmap <Leader>a <Esc>:Ack!<space>
@@ -477,10 +423,6 @@ autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 " JSON
 autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
 
-" Allow these file extensions to be accessed via 'gf' of only the name, for
-" e.g. gf on [[AnotherPage]] should go to AnotherPage.md
-set suffixesadd=.md,.textile,.txt
-
 " Assume Bash is my shell (:help sh.vim)
 let g:is_bash = 1
 
@@ -503,17 +445,6 @@ if has('gui_macvim')
     set macmeta
 
     let macvim_hig_shift_movement = 1
-
-    function ToggleFullScreen()
-        if exists("g:in_full_screen")
-            set nofullscreen
-            unlet g:in_full_screen
-        else
-            let g:in_full_screen = 1
-            set fullscreen
-        endif
-    endfunction
-    nmap <Leader>f :call ToggleFullScreen()<CR>
 endif
 
 " Local config
