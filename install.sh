@@ -62,6 +62,11 @@ echo "Command-T post-download installation"
 if [[ -d "$HOME/.vim/bundle/command-t" ]]
 then
     cd "$HOME/.vim/bundle/command-t"
+    if [[ $(which rake) == "" ]]
+    then
+        echo "Install rake in another window"
+        read
+    fi
     rake make
     cd -
 fi
@@ -89,12 +94,6 @@ do
     ln -s -f "$PWD/$f" "$HOME/.vim/after/plugin"
 done
 
-echo "Remove explicit Safari mention in Textile-for-VIM"
-if [[ -d "$HOME/.vim/bundle/Textile-for-VIM/" ]]
-then
-    sed -i.bak 's/open -a Safari/open/' "$HOME/.vim/bundle/Textile-for-VIM/ftplugin/textile.vim"
-fi
-
 echo "Download upstart.vim"
 if [[ ! -f $HOME/.vim/syntax/upstart.vim ]]
 then
@@ -115,7 +114,7 @@ then
 fi
 if [[ "$OS" == "linux" ]]
 then
-    sudo apt-get install exuberant-ctags
+    sudo apt-get install -y exuberant-ctags
 fi
 
 echo "Finished"
