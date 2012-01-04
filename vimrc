@@ -279,7 +279,7 @@ def launch(uri):
         vim.command('!gnome-open {}'.format(uri))
 
 def is_word(text):
-    return re.match(r'^[\w./?%:#&=~-]+$', text) is not None
+    return re.match(r'^[\w./?%:#&=~+-]+$', text) is not None
 
 filename_start = filename_end = vim.current.window.cursor[1] # (row, col)
 
