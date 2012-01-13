@@ -38,6 +38,7 @@ Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'jayferd/eco.vim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'mattn/zencoding-vim'
 Bundle 'mikewest/vimroom'
@@ -64,7 +65,7 @@ Bundle 'wavded/vim-stylus'
 "Bundle 'roman/golden-ratio'
 
 " Git Repos not on GitHub
-Bundle 'git://git.wincent.com/command-t.git'
+"Bundle 'git://git.wincent.com/command-t.git'
 
 "" General Settings
 

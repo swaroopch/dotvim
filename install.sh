@@ -58,18 +58,18 @@ fi
 echo "Instruct Vundle to download all the scripts"
 vim -c "BundleInstall" -c "quit"
 
-echo "Command-T post-download installation"
-if [[ -d "$HOME/.vim/bundle/command-t" ]]
-then
-    cd "$HOME/.vim/bundle/command-t"
-    if [[ $(which rake) == "" ]]
-    then
-        echo "Install rake in another window"
-        read
-    fi
-    rake make
-    cd -
-fi
+#echo "Command-T post-download installation"
+#if [[ -d "$HOME/.vim/bundle/command-t" ]]
+#then
+    #cd "$HOME/.vim/bundle/command-t"
+    #if [[ $(which rake) == "" ]]
+    #then
+        #echo "Install rake in another window"
+        #read
+    #fi
+    #rake make
+    #cd -
+#fi
 
 echo "Custom snippets"
 if [[ -d "$HOME/.vim/bundle/snipmate.vim" ]]
