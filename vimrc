@@ -133,8 +133,12 @@ set statusline=
 set statusline+=%-3.3n\                         " buffer number
 set statusline+=%f\                             " filename
 set statusline+=%h%m%r%w                        " status flags
-set statusline+=%{fugitive#statusline()}        " git status
-set statusline+=%{SyntasticStatuslineFlag()}    " syntastic status - makes sense with :Errors
+if isdirectory(expand("~/.vim/bundle/vim-fugitive", ":p"))
+    set statusline+=%{fugitive#statusline()}        " git status
+endif
+if isdirectory(expand("~/.vim/bundle/syntastic", ":p"))
+    set statusline+=%{SyntasticStatuslineFlag()}    " syntastic status - makes sense with :Errors
+endif
 set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
 set statusline+=%=                              " right align remainder
 set statusline+=0x%-8B                          " character value
@@ -437,9 +441,9 @@ command Reedit :tabdo windo edit!
 " Default color scheme
 " On Mac OS X, best used with iTerm2 and the solarized color scheme for iTerm2
 set background=dark
-"if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
-    "colorscheme solarized
-"endif
+if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
+    colorscheme solarized
+endif
 
 " Mac
 if has('gui_macvim')
