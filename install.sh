@@ -101,20 +101,4 @@ then
     curl "http://bazaar.launchpad.net/~upstart-devel/upstart/trunk/download/head:/upstart.vim-20090708195914-1n7k3bcwobwm4ag7-7/upstart.vim" -o "$HOME/.vim/syntax/upstart.vim"
 fi
 
-echo "Jinja post-download installation"
-if [[ -d "$HOME/.vim/bundle/Jinja" ]] && [[ ! -f "$HOME/.vim/bundle/Jinja/syntax/htmljinja.vim" ]]
-then
-    curl "http://www.vim.org/scripts/download_script.php?src_id=6961" -o "$HOME/.vim/bundle/Jinja/syntax/htmljinja.vim"
-fi
-
-echo "Installing ctags"
-if [[ "$OS" == "mac" ]]
-then
-    brew install ctags
-fi
-if [[ "$OS" == "linux" ]]
-then
-    sudo apt-get install -y exuberant-ctags
-fi
-
 echo "Finished"
