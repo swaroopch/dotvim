@@ -17,11 +17,11 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Git Repos by http://vim-scripts.org ( get names from https://github.com/vim-scripts/following )
-Bundle 'Conque-Shell'
 Bundle 'JSON.vim'
 Bundle 'django.vim'
 Bundle 'nginx.vim'
 Bundle 'python.vim--Vasiliev'
+"Bundle 'Conque-Shell'
 
 " Git Repos on GitHub
 " Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
@@ -366,13 +366,6 @@ map <Leader>u :GundoToggle<CR>
 " Bundle 'mileszs/ack.vim'
 nmap <Leader>a <Esc>:Ack!<space>
 
-" Bundle 'Conque-Shell'
-map <Leader>e :<C-u>call conque_term#send_selected(visualmode())<CR><CR>
-command Shell :set nolist | ConqueTermSplit bash
-command PythonShell :set nolist | ConqueTermSplit python
-command RailsShell :set nolist | ConqueTermSplit rails console
-"command FlaskShell :set nolist | ConqueTermSplit env DEV=yes python -i play.py
-
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
@@ -380,15 +373,11 @@ cmap w!! w !sudo tee % >/dev/null
 " http://vimcasts.org/blog/2011/05/the-fugitive-series/
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" CoffeeScript
-" Bundle 'kchmck/vim-coffee-script'
-autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 tabstop=2
-command CoffeeShowJavascript :CoffeeCompile watch vert | setlocal scrollbind | wincmd w | setlocal scrollbind | wincmd w
-command CoffeeStopJavascript :CoffeeCompile unwatch | only
-let g:coffee_make_options='--bare --lint'
-
 " Bundle 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
+
+" CoffeeScript
+autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 tabstop=2
 
 " XML, HTML
 function TagExpander()
@@ -401,12 +390,11 @@ endfunction
 autocmd FileType xml   call TagExpander()
 autocmd FileType html  call TagExpander()
 autocmd FileType eruby call TagExpander()
-autocmd FileType php   call TagExpander()
 autocmd FileType htmljinja call TagExpander()
 autocmd FileType htmldjango call TagExpander()
 
 " Ruby
-autocmd BufRead,BufNewFile {Gemfile,Rakefile,config.ru} set ft=ruby
+autocmd BufRead,BufNewFile {Gemfile,Rakefile,config.ru} setlocal ft=ruby
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 
 " YAML
