@@ -407,9 +407,6 @@ autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
 " Assume Bash is my shell (:help sh.vim)
 let g:is_bash = 1
 
-" Insert timestamp
-imap <c-d> <C-R>=strftime("%d-%b-%Y")<CR>
-
 " Reload all windows in all tabs, useful after I do a 'git rebase -i'
 command Reedit :tabdo windo edit!
 
