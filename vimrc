@@ -25,6 +25,7 @@ Bundle 'python.vim--Vasiliev'
 
 " Git Repos on GitHub
 " Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
+Bundle 'AD7six/vim-independence'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'gmarik/ide-popup.vim'
