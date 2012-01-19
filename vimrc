@@ -18,6 +18,7 @@ Bundle 'gmarik/vundle'
 
 " Git Repos by http://vim-scripts.org ( get names from https://github.com/vim-scripts/following )
 Bundle 'JSON.vim'
+Bundle 'VimClojure'
 Bundle 'django.vim'
 Bundle 'nginx.vim'
 Bundle 'python.vim--Vasiliev'
@@ -348,8 +349,11 @@ set completeopt=menuone,longest,preview
 
 "" Bundle-specific configurations
 
+" Bundle 'VimClojure'
+let g:vimclojure#ParenRainbow = 1
+
 " Bundle 'Lokaltog/vim-easymotion'
-let g:EasyMotion_leader_key = '<Leader>m'
+let g:EasyMotion_leader_key = '<Leader>f'
 
 " Bundle 'godlygeek/tabular'
 command -range AlignFirstEqualSign :<line1>,<line2>Tabularize /^[^=]*\zs/
