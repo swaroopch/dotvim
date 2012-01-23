@@ -28,6 +28,7 @@ Bundle 'python.vim--Vasiliev'
 " Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
 Bundle 'AD7six/vim-independence'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
