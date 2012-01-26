@@ -256,6 +256,39 @@ set suffixesadd=.md,.txt
 " Open filename in new tab, great for Gollum wiki
 map <leader>t <c-w>gf
 
+" Shortcut to wrap a Gollum link in double square brackets
+" Converts 'link' to '[[link]]'
+function! WrapGollumLink()
+    let beginning  = col('.')
+    let ending = col('.')
+    let line   = getline('.')
+
+    while 1
+        if beginning == 0
+            break
+        endif
+        if line[beginning] == ' '
+            let beginning = beginning + 1
+            break
+        endif
+        let beginning = beginning - 1
+    endwhile
+
+    while 1
+        if ending == len(line)
+            break
+        endif
+        if line[ending] == ' '
+            break
+        endif
+        let ending = ending + 1
+    endwhile
+
+    let updated_line = strpart(line, 0, beginning) . "[[" . strpart(line, beginning, ending-beginning) . "]]" . strpart(line, ending)
+    call setline('.', updated_line)
+endfunction
+map <leader>b :call WrapGollumLink()<CR>
+
 if has('python') " Assumes Python >= 2.6
 
     " Quick way to open a filename under the cursor in a new tab
