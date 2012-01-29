@@ -1,6 +1,5 @@
-" Theme
-set background=light
-colorscheme solarized
+" My GVimrc file
+" Maintainer: swaroop@swaroopch.com
 
 " Logical size of GVim window
 set lines=35 columns=99

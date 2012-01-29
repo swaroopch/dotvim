@@ -450,17 +450,20 @@ let g:is_bash = 1
 command Reedit :tabdo windo edit!
 
 " Default color scheme
-" On Mac OS X, best used with iTerm2 and the solarized color scheme for iTerm2
-set background=light
+if has("gui_running")
+    set background=light
+else
+    set background=dark
+endif
+
+" NOTE: On Mac OS X, best used with [iTerm 2](http://www.iterm2.com)
 if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
     colorscheme solarized
 endif
 
 " Mac
-if has('gui_macvim')
+if has('mac')
     set macmeta
-
-    let macvim_hig_shift_movement = 1
 endif
 
 " Local config
