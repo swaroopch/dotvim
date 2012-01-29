@@ -56,7 +56,7 @@ then
 fi
 
 echo "Instruct Vundle to download all the scripts"
-vim -c "BundleInstall" -c "quit"
+vim +BundleInstall +qall
 
 echo "Custom snippets"
 if [[ -d "$HOME/.vim/bundle/snipmate.vim" ]]
