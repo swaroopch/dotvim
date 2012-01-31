@@ -443,6 +443,9 @@ autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
 autocmd FileType json setlocal tabstop=2 shiftwidth=2
 
+" Clojure
+autocmd FileType clojure setlocal tabstop=2 shiftwidth=2
+
 " Assume Bash is my shell (:help sh.vim)
 let g:is_bash = 1
 
