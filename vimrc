@@ -390,7 +390,8 @@ let g:vimclojure#ParenRainbow = 1
 let g:EasyMotion_leader_key = '<Leader>f'
 
 " Bundle 'godlygeek/tabular'
-command -range AlignFirstEqualSign :<line1>,<line2>Tabularize /^[^=]*\zs/
+command -range AlignFirstEquals :<line1>,<line2>Tabularize /^[^=]*\zs/
+command -range AlignFirstColon  :<line1>,<line2>Tabularize /^[^:]*\zs/
 
 " Bundle 'scrooloose/nerdtree'
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
