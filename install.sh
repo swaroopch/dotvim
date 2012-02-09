@@ -82,10 +82,28 @@ do
 done
 
 echo "Download upstart.vim"
-if [[ ! -f $HOME/.vim/syntax/upstart.vim ]]
+if [[ ! -f "$HOME/.vim/syntax/upstart.vim" ]]
 then
-    mkdir -p $HOME/.vim/syntax/
+    mkdir -p "$HOME/.vim/syntax/"
     curl "http://bazaar.launchpad.net/~upstart-devel/upstart/trunk/download/head:/upstart.vim-20090708195914-1n7k3bcwobwm4ag7-7/upstart.vim" -o "$HOME/.vim/syntax/upstart.vim"
+fi
+
+echo "Download protobuf vim syntax file"
+if [[ ! -f "$HOME/.vim/syntax/proto.vim" ]]
+then
+    mkdir -p "$HOME/.vim/syntax/"
+
+    curl "http://protobuf.googlecode.com/svn/trunk/editors/proto.vim" -o "$HOME/.vim/syntax/proto.vim"
+
+    if [[ ! -f "$HOME/.vim/ftdetect/proto.vim" ]]
+    then
+        mkdir -p "$HOME/.vim/ftdetect/"
+        cat > "$HOME/.vim/ftdetect/proto.vim" <<EOF
+augroup filetype
+    au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
+EOF
+    fi
 fi
 
 echo "Finished"
