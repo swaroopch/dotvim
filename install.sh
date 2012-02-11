@@ -81,13 +81,6 @@ do
     ln -s -f "$PWD/$f" "$HOME/.vim/after/plugin"
 done
 
-echo "Download upstart.vim"
-if [[ ! -f "$HOME/.vim/syntax/upstart.vim" ]]
-then
-    mkdir -p "$HOME/.vim/syntax/"
-    curl "http://bazaar.launchpad.net/~upstart-devel/upstart/trunk/download/head:/upstart.vim-20090708195914-1n7k3bcwobwm4ag7-7/upstart.vim" -o "$HOME/.vim/syntax/upstart.vim"
-fi
-
 echo "Download protobuf vim syntax file"
 if [[ ! -f "$HOME/.vim/syntax/proto.vim" ]]
 then
