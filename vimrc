@@ -463,11 +463,12 @@ let g:is_bash = 1
 command Reedit :tabdo windo edit!
 
 " Default color scheme
-if has("gui_running")
-    set background=light
-else
-    set background=dark
-endif
+set background=dark
+"if has("gui_running")
+    "set background=light
+"else
+    "set background=dark
+"endif
 
 " NOTE: On Mac OS X, best used with [iTerm 2](http://www.iterm2.com)
 if has('mac')
