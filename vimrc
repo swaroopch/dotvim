@@ -470,8 +470,12 @@ else
 endif
 
 " NOTE: On Mac OS X, best used with [iTerm 2](http://www.iterm2.com)
-if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
-    colorscheme solarized
+if has('mac')
+    if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
+        colorscheme solarized
+    endif
+else
+    colorscheme default
 endif
 
 " Mac
