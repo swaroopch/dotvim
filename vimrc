@@ -18,10 +18,13 @@ Bundle 'gmarik/vundle'
 
 " Git Repos by http://vim-scripts.org ( get names from https://github.com/vim-scripts/following )
 Bundle 'JSON.vim'
+Bundle 'NrrwRgn'
 Bundle 'VimClojure'
+Bundle 'calendar.vim--Matsumoto'
 Bundle 'django.vim'
 Bundle 'nginx.vim'
 Bundle 'python.vim--Vasiliev'
+Bundle 'utl.vim'
 "Bundle 'Conque-Shell'
 
 " Git Repos on GitHub
@@ -33,6 +36,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'carlosvillu/coffeScript-VIM-Snippets'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
+Bundle 'hsitz/VimOrganizer'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
@@ -414,6 +418,12 @@ autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 tabstop=2
 command CoffeeShowJavascript :CoffeeCompile watch vert | setlocal scrollbind | wincmd w | setlocal scrollbind | wincmd w
 command CoffeeStopJavascript :CoffeeCompile unwatch | only
 let g:coffee_make_options='--bare --lint'
+
+" Bundle 'hsitz/VimOrganizer'
+" Org Mode
+" https://github.com/hsitz/VimOrganizer/blob/master/INSTALL.txt
+autocmd! BufRead,BufWrite,BufWritePost,BufNewFile *.org
+autocmd BufEnter *.org call org#SetOrgFileType()
 
 " Bundle 'tpope/vim-fugitive'
 " http://vimcasts.org/blog/2011/05/the-fugitive-series/
