@@ -107,7 +107,7 @@ set wrap
 command TextMode setlocal nolist wrap linebreak scrolloff=999
 
 " Highlight current line
-set cursorline
+"set cursorline
 
 " http://vim.wikia.com/wiki/Move_cursor_by_display_lines_when_wrapping
 nnoremap <silent> j gj
