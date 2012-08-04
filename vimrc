@@ -481,13 +481,14 @@ set background=dark
 "endif
 
 " NOTE: On Mac OS X, best used with [iTerm 2](http://www.iterm2.com)
-if has('mac')
-    if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
-        colorscheme solarized
-    endif
-else
-    colorscheme default
-endif
+"if has('mac')
+"    if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
+"        colorscheme solarized
+"    endif
+"else
+"    colorscheme default
+"endif
+colorscheme desert
 
 " Mac
 if has('mac')
