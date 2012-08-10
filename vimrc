@@ -33,12 +33,10 @@ Bundle 'AD7six/vim-independence'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'carlosvillu/coffeScript-VIM-Snippets'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'hsitz/VimOrganizer'
 Bundle 'juvenn/mustache.vim'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'mattn/zencoding-vim'
@@ -413,12 +411,6 @@ map <Leader>u :GundoToggle<CR>
 " Bundle 'mileszs/ack.vim'
 nmap <Leader>a <Esc>:Ack!<space>
 
-" Bundle 'kchmck/vim-coffee-script'
-autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 tabstop=2
-command CoffeeShowJavascript :CoffeeCompile watch vert | setlocal scrollbind | wincmd w | setlocal scrollbind | wincmd w
-command CoffeeStopJavascript :CoffeeCompile unwatch | only
-let g:coffee_make_options='--bare --lint'
-
 " Bundle 'hsitz/VimOrganizer'
 " Org Mode
 " https://github.com/hsitz/VimOrganizer/blob/master/INSTALL.txt
@@ -459,9 +451,6 @@ autocmd FileType json setlocal tabstop=2 shiftwidth=2
 
 " Clojure
 autocmd FileType clojure setlocal tabstop=2 shiftwidth=2
-
-" CoffeeScript
-autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
