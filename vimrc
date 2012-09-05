@@ -33,6 +33,7 @@ Bundle 'AD7six/vim-independence'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'hsitz/VimOrganizer'
@@ -470,14 +471,13 @@ set background=dark
 "endif
 
 " NOTE: On Mac OS X, best used with [iTerm 2](http://www.iterm2.com)
-"if has('mac')
-"    if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
-"        colorscheme solarized
-"    endif
-"else
-"    colorscheme default
-"endif
-colorscheme desert
+if has('mac')
+    if isdirectory(expand("~/.vim/bundle/vim-tomorrow-theme", ":p"))
+        colorscheme Tomorrow-Night
+    endif
+else
+    colorscheme default
+endif
 
 " Mac
 if has('mac')
