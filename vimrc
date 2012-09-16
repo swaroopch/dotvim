@@ -467,9 +467,12 @@ let g:is_bash = 1
 command Reedit :tabdo windo edit!
 
 " Word count
+" Also remember that `g c-g` (:help word-count) is a built-in command that
+" does the same thing.
 if isdirectory(expand("~/.vim/bundle/vim-wordcount", ":p"))
     run! wordcount.vim
     command WordCount echo WordCount('word')
+    " TODO Use in statusline
 endif
 
 " Default color scheme
