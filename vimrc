@@ -34,6 +34,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'fuenor/vim-wordcount'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'hsitz/VimOrganizer'
@@ -123,21 +124,24 @@ set encoding=utf-8
 
 " Status line
 set laststatus=2
-set statusline=
-set statusline+=%-3.3n\                         " buffer number
-set statusline+=%f\                             " filename
-set statusline+=%h%m%r%w                        " status flags
-if isdirectory(expand("~/.vim/bundle/vim-fugitive", ":p"))
-    set statusline+=%{fugitive#statusline()}        " git status
-endif
-if isdirectory(expand("~/.vim/bundle/syntastic", ":p"))
-    set statusline+=%{SyntasticStatuslineFlag()}    " syntastic status - makes sense with :Errors
-endif
-set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
-set statusline+=%=                              " right align remainder
-set statusline+=0x%-8B                          " character value
-set statusline+=%-14(%l,%c%V%)                  " line, character
-set statusline+=%<%P                            " file position
+"set statusline=
+"set statusline+=%-3.3n\                         " buffer number
+"set statusline+=%f\                             " filename
+"set statusline+=%h%m%r%w                        " status flags
+"if isdirectory(expand("~/.vim/bundle/vim-fugitive", ":p"))
+    "set statusline+=%{fugitive#statusline()}        " git status
+"endif
+"if isdirectory(expand("~/.vim/bundle/syntastic", ":p"))
+    "set statusline+=%{SyntasticStatuslineFlag()}    " syntastic status - makes sense with :Errors
+"endif
+"set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
+"set statusline+=%=                              " right align remainder
+"set statusline+=0x%-8B                          " character value
+"set statusline+=%-14(%l,%c%V%)                  " line, character
+"set statusline+=%<%P                            " file position
+"if isdirectory(expand("~/.vim/bundle/vim-wordcount", ":p"))
+    "set statusline+=[wc:%{WordCount()}]
+"endif
 
 " Tab line
 " Refer ':help setting-guitablabel'
@@ -461,6 +465,12 @@ let g:is_bash = 1
 
 " Reload all windows in all tabs, useful after I do a 'git rebase -i'
 command Reedit :tabdo windo edit!
+
+" Word count
+if isdirectory(expand("~/.vim/bundle/vim-wordcount", ":p"))
+    run! wordcount.vim
+    command WordCount echo WordCount('word')
+endif
 
 " Default color scheme
 set background=dark
