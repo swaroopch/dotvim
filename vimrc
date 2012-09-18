@@ -253,11 +253,8 @@ function! PasteFromClipboard()
 endfunction
 command B call PasteFromClipboard()
 
-" Plain text files are Markdown
-autocmd BufNewFile,BufRead *.txt setlocal ft=markdown
-autocmd BufNewFile,BufRead *.text setlocal ft=markdown
+" Markdown files are plain text files
 autocmd FileType markdown TextMode
-autocmd BufNewFile,BufRead requirements.txt setlocal ft=
 
 " Allow these file extensions to be accessed via 'gf' of only the name, for
 " e.g. gf on [[AnotherPage]] should go to AnotherPage.md
