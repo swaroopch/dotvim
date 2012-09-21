@@ -310,7 +310,7 @@ def launch(uri):
     if platform.system() == 'Darwin':
         vim.command('!open {}'.format(uri))
     elif platform.system() == 'Linux':
-        vim.command('!gnome-open {}'.format(uri))
+        vim.command('!firefox -new-tab {}'.format(uri))
 
 def is_word(text):
     return re.match(r'^[\w./?%:#&=~+-]+$', text) is not None
