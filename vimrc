@@ -481,12 +481,8 @@ set background=dark
 "endif
 
 " NOTE: On Mac OS X, best used with [iTerm 2](http://www.iterm2.com)
-if has('mac')
-    if isdirectory(expand("~/.vim/bundle/vim-tomorrow-theme", ":p"))
-        colorscheme Tomorrow-Night
-    endif
-else
-    colorscheme default
+if isdirectory(expand("~/.vim/bundle/vim-tomorrow-theme", ":p"))
+    colorscheme Tomorrow-Night
 endif
 
 " Mac
