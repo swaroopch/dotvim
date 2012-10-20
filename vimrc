@@ -387,6 +387,8 @@ let python_highlight_all=1
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
+" PEP8 compliance - http://www.python.org/dev/peps/pep-0008/
+autocmd FileType python set colorcolumn=80
 
 "" Bundle-specific configurations
 
