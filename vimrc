@@ -49,14 +49,15 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
 Bundle 'sukima/xmledit'
-Bundle 'swaroopch/vim-markdown'
-Bundle 'swaroopch/vim-markdown-preview'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-pandoc/vim-pandoc'
 "Bundle 'nathanaelkane/vim-indent-guides'
 "Bundle 'roman/golden-ratio'
+"Bundle 'swaroopch/vim-markdown'
+"Bundle 'swaroopch/vim-markdown-preview'
 "Bundle 'tpope/vim-rails'
 
 " Git Repos not on GitHub
@@ -255,6 +256,7 @@ command B call PasteFromClipboard()
 
 " Markdown files are plain text files
 autocmd FileType markdown TextMode
+autocmd FileType pandoc TextMode
 
 " Allow these file extensions to be accessed via 'gf' of only the name, for
 " e.g. gf on [[AnotherPage]] should go to AnotherPage.md
