@@ -259,6 +259,11 @@ command B call PasteFromClipboard()
 autocmd FileType markdown TextMode
 autocmd FileType pandoc TextMode
 
+" Pandoc files should preferably be short width
+" For e.g. code > 70 lines will not be visible
+" unless you scroll in the HTML output
+autocmd FileType pandoc set colorcolumn=70
+
 " Allow these file extensions to be accessed via 'gf' of only the name, for
 " e.g. gf on [[AnotherPage]] should go to AnotherPage.md
 set suffixesadd=.md,.txt
