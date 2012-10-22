@@ -392,10 +392,6 @@ runtime! macros/matchit.vim
 
 " Python
 let python_highlight_all=1
-" For 'supertab' script
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
 " PEP8 compliance - http://www.python.org/dev/peps/pep-0008/
 autocmd FileType python set colorcolumn=80
 
