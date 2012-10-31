@@ -17,50 +17,49 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Git Repos by http://vim-scripts.org ( get names from https://github.com/vim-scripts/following )
-Bundle 'JSON.vim'
-Bundle 'NrrwRgn'
-Bundle 'VimClojure'
-Bundle 'calendar.vim--Matsumoto'
-Bundle 'django.vim'
-Bundle 'nginx.vim'
-Bundle 'python.vim--Vasiliev'
-Bundle 'utl.vim'
 "Bundle 'Conque-Shell'
+"Bundle 'JSON.vim'
+"Bundle 'NrrwRgn'
+"Bundle 'calendar.vim--Matsumoto'
+"Bundle 'django.vim'
+"Bundle 'nginx.vim'
+"Bundle 'python.vim--Vasiliev'
+"Bundle 'utl.vim'
+Bundle 'VimClojure'
 
 " Git Repos on GitHub
 " Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
-Bundle 'AD7six/vim-independence'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/vim-tomorrow-theme'
+"Bundle 'AD7six/vim-independence'
+"Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'altercation/vim-colors-solarized'
+"Bundle 'chriskempson/vim-tomorrow-theme'
+"Bundle 'fuenor/vim-wordcount'
+"Bundle 'godlygeek/tabular'
+"Bundle 'hsitz/VimOrganizer'
+"Bundle 'majutsushi/tagbar'
+"Bundle 'mattn/zencoding-vim'
+"Bundle 'nathanaelkane/vim-indent-guides'
+"Bundle 'roman/golden-ratio'
+"Bundle 'sjl/gundo.vim'
+"Bundle 'swaroopch/vim-markdown'
+"Bundle 'tpope/vim-speeddating'
+"Bundle 'tpope/vim-surround'
+"Bundle 'tpope/vim-unimpaired'
 Bundle 'davidhalter/jedi-vim'
-Bundle 'fuenor/vim-wordcount'
 Bundle 'gmarik/ide-popup.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'hsitz/VimOrganizer'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'mattn/zencoding-vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'nvie/vim-flake8'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'sjl/gundo.vim'
 Bundle 'sukima/xmledit'
+Bundle 'swaroopch/vim-markdown-preview'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-pandoc/vim-pandoc'
-"Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'roman/golden-ratio'
-"Bundle 'swaroopch/vim-markdown'
-"Bundle 'swaroopch/vim-markdown-preview'
-"Bundle 'tpope/vim-rails'
 
 " Git Repos not on GitHub
 "Bundle 'git://git.wincent.com/command-t.git'
@@ -127,57 +126,21 @@ set encoding=utf-8
 
 " Status line
 set laststatus=2
-"set statusline=
-"set statusline+=%-3.3n\                         " buffer number
-"set statusline+=%f\                             " filename
-"set statusline+=%h%m%r%w                        " status flags
-"if isdirectory(expand("~/.vim/bundle/vim-fugitive", ":p"))
-    "set statusline+=%{fugitive#statusline()}        " git status
-"endif
-"if isdirectory(expand("~/.vim/bundle/syntastic", ":p"))
-    "set statusline+=%{SyntasticStatuslineFlag()}    " syntastic status - makes sense with :Errors
-"endif
-"set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
-"set statusline+=%=                              " right align remainder
-"set statusline+=0x%-8B                          " character value
-"set statusline+=%-14(%l,%c%V%)                  " line, character
-"set statusline+=%<%P                            " file position
-"if isdirectory(expand("~/.vim/bundle/vim-wordcount", ":p"))
-    "set statusline+=[wc:%{WordCount()}]
-"endif
-
-" Tab line
-" Refer ':help setting-guitablabel'
-if v:version >= 700
-
-function GuiTabLabel()
-    let label = ''
-    let bufnrlist = tabpagebuflist(v:lnum)
-
-    " Add '+' if one of the buffers in the tab page is modified
-    for bufnr in bufnrlist
-        if getbufvar(bufnr, '&modified')
-            let label = '[+] '
-            break
-        endif
-    endfor
-
-    " Append the number of windows in the tab page if more than one
-    let wincount = tabpagewinnr(v:lnum, '$')
-    if wincount > 1
-        let label .= wincount
-    endif
-    if label != ''
-        let label .= ' '
-    endif
-
-    return label
-
-endfunction
-
-set guitablabel=%{GuiTabLabel()}\ %t
-
-endif " v:version >= 700
+set statusline=
+set statusline+=%-3.3n\                         " buffer number
+set statusline+=%f\                             " filename
+set statusline+=%h%m%r%w                        " status flags
+if isdirectory(expand("~/.vim/bundle/vim-fugitive", ":p"))
+    set statusline+=%{fugitive#statusline()}        " git status
+endif
+if isdirectory(expand("~/.vim/bundle/syntastic", ":p"))
+    set statusline+=%{SyntasticStatuslineFlag()}    " syntastic status - makes sense with :Errors
+endif
+set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
+set statusline+=%=                              " right align remainder
+set statusline+=0x%-8B                          " character value
+set statusline+=%-14(%l,%c%V%)                  " line, character
+set statusline+=%<%P                            " file position
 
 " Show line number, cursor position.
 set ruler
@@ -259,51 +222,7 @@ command B call PasteFromClipboard()
 " Markdown files are plain text files
 autocmd FileType markdown TextMode
 autocmd FileType pandoc TextMode
-
-" Pandoc files should preferably be short width
-" For e.g. code > 70 lines will not be visible
-" unless you scroll in the HTML output
-autocmd FileType pandoc set colorcolumn=70
-
-" Allow these file extensions to be accessed via 'gf' of only the name, for
-" e.g. gf on [[AnotherPage]] should go to AnotherPage.md
-set suffixesadd=.md,.txt
-
-" Open filename in new tab, great for Gollum wiki
-map <leader>t <c-w>gf
-
-" Shortcut to wrap a Gollum link in double square brackets
-" Converts 'link' to '[[link]]'
-function! WrapGollumLink()
-    let beginning  = col('.')
-    let ending = col('.')
-    let line   = getline('.')
-
-    while 1
-        if beginning == 0
-            break
-        endif
-        if line[beginning] == ' '
-            let beginning = beginning + 1
-            break
-        endif
-        let beginning = beginning - 1
-    endwhile
-
-    while 1
-        if ending == len(line)
-            break
-        endif
-        if line[ending] == ' '
-            break
-        endif
-        let ending = ending + 1
-    endwhile
-
-    let updated_line = strpart(line, 0, beginning) . "[[" . strpart(line, beginning, ending-beginning) . "]]" . strpart(line, ending)
-    call setline('.', updated_line)
-endfunction
-map <leader>b :call WrapGollumLink()<CR>
+let g:pandoc_no_folding = 1
 
 if has('python') " Assumes Python >= 2.6
 
@@ -400,31 +319,16 @@ autocmd FileType python set colorcolumn=80
 " Bundle 'VimClojure'
 let g:vimclojure#ParenRainbow = 1
 
-" Bundle 'Lokaltog/vim-easymotion'
-let g:EasyMotion_leader_key = '<Leader>f'
-
 " Bundle 'godlygeek/tabular'
-command -range AlignFirstEquals :<line1>,<line2>Tabularize /^[^=]*\zs/
-command -range AlignFirstColon  :<line1>,<line2>Tabularize /^[^:]*\zs/
+"command -range AlignFirstEquals :<line1>,<line2>Tabularize /^[^=]*\zs/
+"command -range AlignFirstColon  :<line1>,<line2>Tabularize /^[^:]*\zs/
 
 " Bundle 'scrooloose/nerdtree'
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
 
-" Bundle 'majutsushi/tagbar'
-map <Leader>l :TagbarToggle<CR>
-
-" Bundle 'sjl/gundo.vim'
-map <Leader>u :GundoToggle<CR>
-
 " Bundle 'mileszs/ack.vim'
 nmap <Leader>a <Esc>:Ack!<space>
-
-" Bundle 'hsitz/VimOrganizer'
-" Org Mode
-" https://github.com/hsitz/VimOrganizer/blob/master/INSTALL.txt
-autocmd! BufRead,BufWrite,BufWritePost,BufNewFile *.org
-autocmd BufEnter *.org call org#SetOrgFileType()
 
 " Bundle 'tpope/vim-fugitive'
 " http://vimcasts.org/blog/2011/05/the-fugitive-series/
@@ -470,27 +374,13 @@ let g:is_bash = 1
 " Reload all windows in all tabs, useful after I do a 'git rebase -i'
 command Reedit :tabdo windo edit!
 
-" Word count
-" Also remember that `g c-g` (:help word-count) is a built-in command that
-" does the same thing.
-if isdirectory(expand("~/.vim/bundle/vim-wordcount", ":p"))
-    run! wordcount.vim
-    command WordCount echo WordCount('word')
-    " TODO Use in statusline
-endif
-
 " Default color scheme
 set background=dark
-"if has("gui_running")
-    "set background=light
-"else
-    "set background=dark
-"endif
 
 " NOTE: On Mac OS X, best used with [iTerm 2](http://www.iterm2.com)
-if isdirectory(expand("~/.vim/bundle/vim-tomorrow-theme", ":p"))
-    colorscheme Tomorrow-Night
-endif
+"if isdirectory(expand("~/.vim/bundle/vim-tomorrow-theme", ":p"))
+    "colorscheme Tomorrow-Night
+"endif
 
 " Mac
 if has('mac')

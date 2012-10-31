@@ -1,8 +1,0 @@
-h1. My Vim setup
-
-h2. Installation
-
-# Install "git":http://git-scm.com and "curl":http://curl.haxx.se
-# @git clone git://github.com/swaroopch/dotvim.git@
-# @cd dotvim@
-# @./install.sh@

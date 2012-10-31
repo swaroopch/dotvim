@@ -81,22 +81,4 @@ do
     ln -s -f "$PWD/$f" "$HOME/.vim/after/plugin"
 done
 
-echo "Download protobuf vim syntax file"
-if [[ ! -f "$HOME/.vim/syntax/proto.vim" ]]
-then
-    mkdir -p "$HOME/.vim/syntax/"
-
-    curl "http://protobuf.googlecode.com/svn/trunk/editors/proto.vim" -o "$HOME/.vim/syntax/proto.vim"
-
-    if [[ ! -f "$HOME/.vim/ftdetect/proto.vim" ]]
-    then
-        mkdir -p "$HOME/.vim/ftdetect/"
-        cat > "$HOME/.vim/ftdetect/proto.vim" <<EOF
-augroup filetype
-    au! BufRead,BufNewFile *.proto setfiletype proto
-augroup end
-EOF
-    fi
-fi
-
 echo "Finished"

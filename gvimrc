@@ -12,7 +12,7 @@ set guioptions-=T
 if has('mac')
     set guifont=Menlo:h12
 elseif has('unix')
-    let &guifont="DejaVu Sans Mono 10"
+    let &guifont="Ubuntu Mono 14"
 endif
 
 " vim: filetype=vim
