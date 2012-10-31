@@ -142,6 +142,36 @@ set statusline+=0x%-8B                          " character value
 set statusline+=%-14(%l,%c%V%)                  " line, character
 set statusline+=%<%P                            " file position
 
+" Tab line
+" Refer ':help setting-guitablabel'
+function GuiTabLabel()
+    let label = ''
+    let bufnrlist = tabpagebuflist(v:lnum)
+
+    " Add '+' if one of the buffers in the tab page is modified
+    for bufnr in bufnrlist
+        if getbufvar(bufnr, '&modified')
+            let label = '[+] '
+            break
+            break
+        endif
+    endfor
+
+    " Append the number of windows in the tab page if more than one
+    let wincount = tabpagewinnr(v:lnum, '$')
+    if wincount > 1
+        let label .= wincount
+    endif
+    if label != ''
+        let label .= ' '
+    endif
+
+    return label
+
+endfunction
+
+set guitablabel=%{GuiTabLabel()}\ %t
+
 " Show line number, cursor position.
 set ruler
 
