@@ -253,6 +253,9 @@ command B call PasteFromClipboard()
 autocmd FileType markdown TextMode
 autocmd FileType pandoc TextMode
 let g:pandoc_no_folding = 1
+" Allow these file extensions to be accessed via 'gf' of only the name, for
+" e.g. gf on [[AnotherPage]] should go to AnotherPage.pd
+set suffixesadd=.pd,.txt
 
 if has('python') " Assumes Python >= 2.6
 
@@ -330,6 +333,9 @@ noremap <D-k> :tabn<CR>
 
 " Shortcut for moving between windows
 nnoremap <c-j> :wincmd w<CR>
+
+" Shortcut to insert date
+inoremap <F5> <C-R>=strftime("%a, %d %b %Y")<CR>
 
 " http://items.sjbach.com/319/configuring-vim-right
 " Marks
