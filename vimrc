@@ -26,6 +26,7 @@ Bundle 'gmarik/vundle'
 "Bundle 'python.vim--Vasiliev'
 "Bundle 'utl.vim'
 Bundle 'VimClojure'
+Bundle 'paredit.vim'
 
 " Git Repos on GitHub
 " Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
