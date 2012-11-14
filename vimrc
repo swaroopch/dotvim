@@ -47,7 +47,8 @@ Bundle 'paredit.vim'
 "Bundle 'tpope/vim-speeddating'
 "Bundle 'tpope/vim-surround'
 "Bundle 'tpope/vim-unimpaired'
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
+Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kien/ctrlp.vim'
@@ -415,9 +416,9 @@ command Reedit :tabdo windo edit!
 set background=dark
 
 " NOTE: On Mac OS X, best used with [iTerm 2](http://www.iterm2.com)
-"if isdirectory(expand("~/.vim/bundle/vim-tomorrow-theme", ":p"))
-    "colorscheme Tomorrow-Night
-"endif
+if isdirectory(expand("~/.vim/bundle/vim-tomorrow-theme", ":p"))
+    colorscheme Tomorrow-Night
+endif
 
 " Mac
 if has('mac')
