@@ -61,6 +61,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'sukima/xmledit'
 Bundle 'swaroopch/vim-markdown-preview'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
 Bundle 'vim-pandoc/vim-pandoc'
 
 " Git Repos not on GitHub
