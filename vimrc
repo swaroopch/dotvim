@@ -398,7 +398,7 @@ autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 
 " JSON
-autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
+"autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
 autocmd FileType json setlocal tabstop=2 shiftwidth=2
 
 " Clojure
