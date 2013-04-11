@@ -50,6 +50,7 @@ Bundle 'paredit.vim'
 "Bundle 'davidhalter/jedi-vim'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'gmarik/ide-popup.vim'
+Bundle 'jceb/vim-orgmode'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
@@ -397,9 +398,11 @@ autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 " YAML
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 
-" JSON
-"autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
+" Web
 autocmd FileType json setlocal tabstop=2 shiftwidth=2
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2
+autocmd FileType html setlocal tabstop=2 shiftwidth=2
+autocmd FileType css setlocal tabstop=2 shiftwidth=2
 
 " Clojure
 autocmd FileType clojure setlocal tabstop=2 shiftwidth=2
