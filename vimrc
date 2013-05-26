@@ -35,34 +35,35 @@ Bundle 'paredit.vim'
 "Bundle 'Lokaltog/vim-powerline'
 "Bundle 'altercation/vim-colors-solarized'
 "Bundle 'chriskempson/vim-tomorrow-theme'
+"Bundle 'chriskempson/vim-tomorrow-theme'
+"Bundle 'davidhalter/jedi-vim'
 "Bundle 'fuenor/vim-wordcount'
+"Bundle 'gmarik/ide-popup.vim'
 "Bundle 'godlygeek/tabular'
 "Bundle 'hsitz/VimOrganizer'
 "Bundle 'majutsushi/tagbar'
 "Bundle 'mattn/zencoding-vim'
 "Bundle 'nathanaelkane/vim-indent-guides'
+"Bundle 'nvie/vim-flake8'
 "Bundle 'roman/golden-ratio'
+"Bundle 'scrooloose/syntastic'
 "Bundle 'sjl/gundo.vim'
+"Bundle 'sjl/threesome.vim'
 "Bundle 'swaroopch/vim-markdown'
+"Bundle 'swaroopch/vim-markdown-preview'
+"Bundle 'tpope/vim-git'
 "Bundle 'tpope/vim-speeddating'
 "Bundle 'tpope/vim-surround'
 "Bundle 'tpope/vim-unimpaired'
-"Bundle 'davidhalter/jedi-vim'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'gmarik/ide-popup.vim'
 Bundle 'jceb/vim-orgmode'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'msanders/snipmate.vim'
-Bundle 'nvie/vim-flake8'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
 Bundle 'sukima/xmledit'
-Bundle 'swaroopch/vim-markdown-preview'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
 Bundle 'vim-pandoc/vim-pandoc'
 
 " Git Repos not on GitHub
@@ -352,7 +353,7 @@ runtime! macros/matchit.vim
 " Python
 let python_highlight_all=1
 " PEP8 compliance - http://www.python.org/dev/peps/pep-0008/
-autocmd FileType python set colorcolumn=80
+autocmd FileType python set colorcolumn=100
 
 "" Bundle-specific configurations
 
@@ -420,9 +421,7 @@ command Reedit :tabdo windo edit!
 set background=dark
 
 " NOTE: On Mac OS X, best used with [iTerm 2](http://www.iterm2.com)
-if isdirectory(expand("~/.vim/bundle/vim-tomorrow-theme", ":p"))
-    colorscheme Tomorrow-Night
-endif
+colorscheme desert
 
 " Mac
 if has('mac')
